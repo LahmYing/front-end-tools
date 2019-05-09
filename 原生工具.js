@@ -2,16 +2,10 @@
 // chrome -> Network -> XHR 是 Ajax 请求
 
 
-// 测试套路
-var ensure = function(condition, message) {
-    if (!condition) {
-        console.log(message)
-    }
+// log
+var log = function() {
+    console.log.apply(console, arguments)
 }
-var testMin = function() {
-    ensure(min([1, 2, 3]) == 1, '123 is not 1')
-}
-
 
 // 函数执行遇到 return 就结束
 var minus = function(a, b) {
@@ -24,7 +18,6 @@ var minus = function(a, b) {
 // false
 // 1 === '1'
 // true
-
 
 // 字符串替换
 // '.1.2.3'.split('.').join('#')
@@ -49,6 +42,36 @@ var replaceStr = function(replace, startStr, endStr) {
 // 省略下标参数意思是取到底
 // s.slice(2)   // 'mgood'
 
+
+/***************** 测试套路 *******************/
+var ensure = function(condition, message) {
+    if (!condition) {
+        console.log(message)
+    }
+}
+var testMin = function() {
+    ensure(min([1, 2, 3]) == 1, '123 is not 1')
+}
+
+
+/***************** 事件 *******************/
+// 绑定事件
+// div 监听 eventName 事件，如 'click'
+var bindEvent = function(div, eventName, callback) {
+    div.addEventListener(eventName, callback)
+}
+
+// 给所有 div 绑定某个事件
+var bindAll = function(selector, eventName, callback) {
+    var divs = document.querySelectorAll(selector)
+    for (var i = 0; i < divs.length; i++) {
+        var e = divs[i]
+        bindEvent(e, eventName, callback)
+    }
+}
+
+
+/***************** div 操作 *******************/
 // 清空 div
 var clearDiv = function(div) {
     div.innerHTML = ''
@@ -67,55 +90,53 @@ var allDiv = function(flag) {
     return document.querySelectorAll(flag)
 }
 
-// log
-var log = function() {
-    console.log.apply(console, arguments)
-}
-
-// 插入 div
-// 将 html 添加到 element 的最后
-var addToPageDiv = function(element, html) {
-    element.insertAdjacentHTML('beforeend', html)
-}
-
-// 绑定事件
-// element div 监听 eventName 事件，如 'click'
-var bindEvent = function(element, eventName, callback) {
-    element.addEventListener(eventName, callback)
-}
-// 给所有 div 绑定某个事件
-var bindAll = function(selector, eventName, callback) {
-    var elements = document.querySelectorAll(selector)
-    for (var i = 0; i < elements.length; i++) {
-        var e = elements[i]
-        bindEvent(e, eventName, callback)
-    }
+// 末尾插入 div
+var addToPageDiv = function(div, html) {
+    div.insertAdjacentHTML('beforeend', html)
 }
 
 // div 翻转 类
-var toggleClass = function(element, className) {
-    // log('toggleClass====', element.classList.contains(className))
-    if (element.classList.contains(className)) {
-        element.classList.remove(className)
+var toggleClass = function(div, className) {
+    // log('toggleClass====', div.classList.contains(className))
+    if (div.classList.contains(className)) {
+        div.classList.remove(className)
     } else {
-        element.classList.add(className)
+        div.classList.add(className)
     }
-    // log('element.classList====', element.classList.contains(className))
+    // log('div.classList====', div.classList.contains(className))
 }
 
 // 移除 所有 div 的某个 class
 var removeClassAll = function(className) {
     var selector = '.' + className
-    var elements = document.querySelectorAll(selector)
-    for (var i = 0; i < elements.length; i++) {
-        var e = elements[i]
+    var divs = document.querySelectorAll(selector)
+    for (var i = 0; i < divs.length; i++) {
+        var e = divs[i]
         e.classList.remove(className)
     }
 }
 
-
 // 查找 子 div
-// find 函数可以查找 element 的所有子 div
-var find = function(element, selector) {
-    return element.querySelector(selector)
+// find 函数可以查找 div 的所有子 div
+var find = function(div, selector) {
+    return div.querySelector(selector)
 }
+
+
+/***************** 操作 div 属性 *******************/
+// 属性值
+// 注意， getAttribute 只能得到默认值，而不是得到当前的值
+// div.getAttribute('value')
+
+// 设置属性值
+// div.setAttribute('value', '新用户名')
+
+// 属性是否存在
+// log(div.hasAttributes())       // 查看元素是否有属性
+// log(div.hasAttribute('value')) // 查看元素是否有特定属性
+
+// 删除属性
+// div.removeAttribute('type')
+
+// 获得所有属性
+// var attributes = div.attributes
