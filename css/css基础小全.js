@@ -76,20 +76,28 @@
 非 static 元素可以用 top left bottom right 属性来设置坐标
 非 static 元素可以用 z-index 属性来设置显示层次
 
-relative 是相对定位
+// relative
+相对定位
 
-absolute 完全绝对定位, 忽略其他所有东西
-    往上浮动到 非 static 的元素
+// absolute
+完全绝对定位, 忽略其他所有东西
+往上浮动到 非 static 的元素
 
-fixed 基于 window 的绝对定位, 不随页面滚动改变
+// fixed
+基于 window 的绝对定位, 不随页面滚动改变
 
 
 /*********************** overflow 属性 ***********************/
-    visible 默认
-    auto 需要的时候加滚动条
-    hidden 隐藏多余元素
-    scroll 就算用不着也会强制加滚动条
+    // visible 默认
 
+    // auto
+    需要的时候加滚动条
+
+    // hidden
+    隐藏多余元素
+
+    // scroll
+    就算用不着也会强制加滚动条
 
 
 /*********************** 盒模型相关的 CSS ***********************/
@@ -106,14 +114,14 @@ background: #233 url(bg.png) no-repeat;
 
 
 /*********************** 居中写法 ***********************/
-block 元素居中
+// block 元素居中
 margin: 0 auto;
 
-inline inline-block 元素居中
+// inline inline-block 元素居中
 text-align: center;
 
 
-
+/*********************** 下划线 ***********************/
 text-decoration:
     underline
     overline
@@ -121,5 +129,4 @@ text-decoration:
     blink(这个值已经废弃了)
 
 
-
-margin 合并
+/*********************** margin 合并 ***********************/
