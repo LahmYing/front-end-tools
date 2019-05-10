@@ -14,9 +14,9 @@ var minus = function(a, b) {
 }
 
 // 严格相等
-// 1 === '1'
+1 === '1'
 // false
-// 1 === '1'
+1 === '1'
 // true
 
 // 字符串替换
@@ -33,14 +33,14 @@ var replaceStr = function(replace, startStr, endStr) {
 
 // 数组
 // 末尾添加新元素
-// a.push('新元素')
+a.push('新元素')
 
 // 字符串/数组 切片
 // s.slice(开始下标, 结束下标)
-// s.slice(0, 3)  // 'iam'
-// s.slice(1, 3)  // 'am'
+s.slice(0, 3)  // 'iam'
+s.slice(1, 3)  // 'am'
 // 省略下标参数意思是取到底
-// s.slice(2)   // 'mgood'
+s.slice(2)   // 'mgood'
 
 
 /***************** 测试套路 *******************/
@@ -122,21 +122,36 @@ var find = function(div, selector) {
     return div.querySelector(selector)
 }
 
+// 创建 div
+var button = document.createElement('button');
+// div 里的内容
+button.innerHTML = '注册用户'
+
+
+// 添加子 div
+div.appendChild(button)
+
+// 删除 div
+// 自毁
+div.remove()
+// 父节点删除子 div
+DIV.removeChild(div)
+
 
 /***************** 操作 div 属性 *******************/
 // 属性值
 // 注意， getAttribute 只能得到默认值，而不是得到当前的值
-// div.getAttribute('value')
+div.getAttribute('value')
 
 // 设置属性值
-// div.setAttribute('value', '新用户名')
+div.setAttribute('value', '新用户名')
 
 // 属性是否存在
-// log(div.hasAttributes())       // 查看元素是否有属性
-// log(div.hasAttribute('value')) // 查看元素是否有特定属性
+log(div.hasAttributes())       // 查看元素是否有属性
+log(div.hasAttribute('value')) // 查看元素是否有特定属性
 
 // 删除属性
-// div.removeAttribute('type')
+div.removeAttribute('type')
 
 // 获得所有属性
-// var attributes = div.attributes
+var attributes = div.attributes
