@@ -70,6 +70,11 @@ var bindAll = function(selector, eventName, callback) {
     }
 }
 
+// 事件委托
+// 把 click 事件绑定在事先存在的父元素上
+// 然后在运行的时候检查被点击的对象(通过 event.target 属性)
+// 是否是我们需要的对象, 这个概念就是事件委托
+
 
 /***************** div 操作 *******************/
 // 清空 div
