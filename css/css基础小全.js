@@ -1,38 +1,41 @@
 // CSS 小全
 
+/*********************** 背景图片示例 ***********************/
+background:lightgray url(doge.jpg) repeat-x;
+
 
 /*********************** CSS 的使用 ***********************/
-    // 内联(inline style attribute)
-    <h1 style='background:red;'>内联</h1>
+// 内联
+<h1 style='background:red;'>内联</h1>
 
-    // <head> 标签内的 <style> 标签
-    <head>
-        <meta charset="utf-8">
-        <title>fe 16</title>
-        <style>
-            .c {
-                transform: translate(20px, 40px);
-            }
-        </style>
-    </head>
+// <head> 标签内的 <style> 标签
+<head>
+    <meta charset="utf-8">
+    <title>fe 16</title>
+    <style>
+        .c {
+            transform: translate(20px, 40px);
+        }
+    </style>
+</head>
 
+// <link> 标签中的外联
+<link rel="stylesheet" href="fe6.css">
 
-    // <link> 标签中的外联
-    <link rel="stylesheet" href="fe6.css">
 
 /*********************** 三种主要的选择器 ***********************/
-    <span class="c-class" id='c-id'>c</div>
-    // 元素选择器
-    span {
-    }
+<span class="c-class" id='c-id'>c</span>
+// 元素选择器
+span {
+}
 
-    // class 选择器
-    .c-class {
-    }
+// class 选择器
+.c-class {
+}
 
-    // id 选择器
-    #c-id {
-    }
+// id 选择器
+#c-id {
+}
 
 
 /*********************** 优先级 ***********************/
@@ -49,17 +52,18 @@
     class 选择器
     元素选择器
 
+
 /*********************** display 属性 ***********************/
-    // block
-    block 占一行
+// block
+block 占一行
 
-    // inline
-    inline 只占 content 的尺寸
+// inline
+inline 只占 content 的尺寸
 
-    // inline-block
-    最常用
-    inline-block 对外表现为 inline，所以可以和别的 inline 放在一行
-    对内表现为 block，所以可以设置自身的宽高
+// inline-block
+最常用
+inline-block 对外表现为 inline，所以可以和别的 inline 放在一行
+对内表现为 block，所以可以设置自身的宽高
 
 
 /*********************** 盒模型 ***********************/
@@ -88,16 +92,16 @@
 
 
 /*********************** overflow 属性 ***********************/
-    // visible 默认
+// visible 默认
 
-    // auto
-    需要的时候加滚动条
+// auto
+需要的时候加滚动条
 
-    // hidden
-    隐藏多余元素
+// hidden
+隐藏多余元素
 
-    // scroll
-    就算用不着也会强制加滚动条
+// scroll
+就算用不着也会强制加滚动条
 
 
 /*********************** 盒模型相关的 CSS ***********************/
