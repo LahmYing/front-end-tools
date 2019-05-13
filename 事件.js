@@ -21,15 +21,19 @@ var bindAll = function(selector, eventName, callback) {
 
 
 // 事件冒泡
+/*
 var id3 = document.querySelector('#id3')
 id3.addEventListener('click', function(event){
     console.log('click id3', event)
     // 吃掉冒泡事件
     event.cancelBubble = true
 })
+*/
 
 // 事件捕获
 // 事件捕获是 addEventListener 的第三个参数 useCapture
+/*
 id3.addEventListener('click', function(event){
     console.log('capture click id3', event)
 }, true)
+*/

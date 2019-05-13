@@ -14,9 +14,9 @@ var minus = function(a, b) {
 }
 
 // 严格相等
-1 === '1'
+// 1 === '1'
 // false
-1 == '1'
+// 1 == '1'
 // true
 
 
@@ -37,14 +37,14 @@ var replaceStr = function(str, before, after) {
 
 // 数组
 // 末尾添加新元素
-a.push('新元素')
+// a.push('新元素')
 
 // 切片
 // s.slice(开始下标, 结束下标)
-s.slice(0, 3)
-s.slice(1, 3)
+// s.slice(0, 3)
+// s.slice(1, 3)
 // 省略下标参数意思是取到底
-s.slice(2)
+// s.slice(2)
 
 
 /***************** 测试套路 *******************/
