@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>轮播图</title>
+        <script src=页面元素.js></script>
+        <script src=事件.js></script>
+        <style>
+            /* 3， 轮播图*/
+            .gua-slide {
+                position: relative;
+            }
+            .gua-slide-image {
+                display: none;
+            }
+            /*.gua-slide-image*/
+            .gua-active {
+                display: inline-block;;
+            }
+            .gua-slide-button {
+                right: 0;
+                height: 50px;
+            }
+            .gua-vertical-center {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .gua-slide-indicators {
+                position: absolute;
+                bottom: 10px;
+            }
+            .gua-slide-indi {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: red;
+            }
+            .gua-white {
+                background: white;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 3, 轮播图 -->
+        <div class="gua-3">
+            <!-- data-imgs 是图片的总数 -->
+            <!-- data-active 是当前显示的图片的下标 -->
+            <div class="gua-slide" data-imgs=3 data-active=0>
+                <img id=id-guaimage-0 class="gua-slide-image gua-active" src="slideimages/1.jpg" alt="">
+                <img id=id-guaimage-1 class=gua-slide-image src="slideimages/2.jpg" alt="">
+                <img id=id-guaimage-2 class=gua-slide-image src="slideimages/3.jpg" alt="">
+                <button class="gua-slide-button gua-vertical-center">下一张</button>
+                <div class="gua-slide-indicators">
+                    <div class="gua-slide-indi gua-white"></div>
+                    <div class="gua-slide-indi"></div>
+                    <div class="gua-slide-indi"></div>
+                </div>
+            </div>
+        </div>
+        <script src=轮播图.js></script>
+    </body>
+</html>
