@@ -46,6 +46,15 @@ var replaceStr = function(str, before, after) {
 // 省略下标参数意思是取到底
 // s.slice(2)
 
+// ... 叫扩展符号
+// 作用是把数组解开成单独的元素
+var a1 = [1, 2, 3]
+var a2 = [...a1, 4]
+// 结果是 [1, 2, 3, 4]
+
+// 解包
+var [a, b] = [1, 2]
+// a b 分别被赋值为 1 2
 
 /***************** 测试套路 *******************/
 var ensure = function(condition, message) {
