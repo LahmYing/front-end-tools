@@ -2,18 +2,18 @@
 // 如果没有这一行, 就没办法使用一些 let const 这样的特性
 "use strict"
 
+// express 框架安装使用(它是一个流行的基于 nodejs 的服务器开发框架)
+// http://www.runoob.com/nodejs/nodejs-express-framework.html
 
-/********************************** 后端 api demo(基于express框架)*** start **************************************/
-// express_demo.js 文件
+/**********************************
+用 express 简述后端开发的流程
+**************************************/
 
-// 引入 express 并且创建一个 express 实例赋值给 app
+// express 实例
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
-// var jsonParser = bodyParser.urlencoded({ extended: false })
 app.use(bodyParser.json())
-
-// var todoList = []
 
 // 配置静态文件目录
 app.use(express.static('static'))
@@ -23,43 +23,30 @@ var sendHtml = function(path, response) {
     var options = {
         encoding: 'utf-8'
     }
-    fs.readFile(path, options, function(err, data){
+    fs.readFile(path, options, function(err, data) {
         console.log(`读取的html文件 ${path} 内容是`, data)
         response.send(data)
     })
 }
+
 // 用 get 定义一个给用户访问的网址
 // request 是浏览器发送的请求
 // response 是我们要发给浏览器的响应
 app.get('/', function(request, response) {
-    // var r = `
-    // `
-    // fs 是 file system 文件系统的缩写
-    // fs 是 node 中处理文件和目录的库
-    // var fs = require('fs')
-    // var options = {
-    //     encoding: 'utf-8'
-    // }
-    // fs.readFile('index.html', options, function(err, data){
-    //     console.log('读取的html文件内容是', data)
-    //     response.send(data)
-    // })
     var path = 'index.html'
     sendHtml(path, response)
 })
 
-var todos = [
-    {
-        id: 1,
-        task: '吃饭',
-    }
-]
+var todos = [{
+    id: 1,
+    task: '吃饭',
+}]
 
 var dataFile = 'todo.txt'
 var fs = require('fs')
 
 var loadTodosFromFile = function(callback) {
-    fs.readFile(dataFile, 'utf8', function(err, data){
+    fs.readFile(dataFile, 'utf8', function(err, data) {
         if (err != null) {
             // 出错了
             console.log('出错了')
@@ -71,6 +58,8 @@ var loadTodosFromFile = function(callback) {
         }
     })
 }
+
+
 /*
 ajax('GET', '/todo/all', '', function(r){
     console.log(r.response)
@@ -80,7 +69,7 @@ app.get('/todo/all', function(request, response) {
     // var r = JSON.stringify(todos)
     // response.send(r)
     // 从文件中 读取所有的 todos 再返回给浏览器
-    loadTodosFromFile(function(){
+    loadTodosFromFile(function() {
         var r = JSON.stringify(todos)
         response.send(r)
     })
@@ -89,18 +78,18 @@ app.get('/todo/all', function(request, response) {
 var writeTodosToFile = function() {
     var s = JSON.stringify(todos)
     fs.writeFile(dataFile, s, (err) => {
-      if (err) {
-          console.log(err)
-      } else {
-          console.log('保存成功')
-      }
+        if (err) {
+            console.log(err)
+        } else {
+            console.log('保存成功')
+        }
     })
 }
 
 var todoAdd = function(todo) {
     // {"task":"ii gw"}
     // 给 todo 加上 id 信息
-    var t = todos[todos.length-1]
+    var t = todos[todos.length - 1]
     if (t == undefined) {
         todo.id = 1
     } else {
@@ -113,6 +102,7 @@ var todoAdd = function(todo) {
     return todo
 }
 
+
 /*
 ajax('POST', '/todo/add', '{"task":"ii gw"}', function(r){
     console.log(r.response)
@@ -121,23 +111,20 @@ ajax('POST', '/todo/add', '{"task":"ii gw"}', function(r){
 app.post('/todo/add', function(request, response) {
     // request.body
     var todo = request.body
-    // console.log('post todo add', request.body, typeof request.body)
-    // console.log(todo.task)
     var t = todoAdd(todo)
     var r = JSON.stringify(t)
     response.send(r)
 })
+
 
 // listen 函数的第一个参数是我们要监听的端口
 // 这个端口是要浏览器输入的
 // 默认的端口是 80
 // 所以如果你监听 80 端口的话，浏览器就不需要输入端口了
 // 但是 1024 以下的端口是系统保留端口，需要管理员权限才能使用
-var server = app.listen(8081, function () {
-  var host = server.address().address
-  var port = server.address().port
-
-  console.log("应用实例，访问地址为 http://%s:%s",
-    host, port)
+var server = app.listen(8081, function() {
+    var host = server.address().address
+    var port = server.address().port
+    console.log("应用实例，访问地址为 http://%s:%s",
+        host, port)
 })
-/********************************** 后端 api demo(基于express框架)*** end **************************************/
