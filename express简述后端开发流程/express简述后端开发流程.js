@@ -5,6 +5,11 @@
 // express 框架安装使用(它是一个流行的基于 nodejs 的服务器开发框架)
 // http://www.runoob.com/nodejs/nodejs-express-framework.html
 
+
+// $ npm install express body-parser cookie-parser multer
+// $ node 这个 js
+
+
 /**********************************
 用 express 简述后端开发的流程
 **************************************/
