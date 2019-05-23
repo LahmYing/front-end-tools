@@ -1,11 +1,4 @@
-// 这一行是套路, 给 node.js 用的
-// 如果没有这一行, 就没办法使用一些 let const 这样的特性
-"use strict"
-
-
-/********************************** 爬虫 start **************************************/
 /*
-本节课主要介绍 6 个点
 - 爬虫的原理(等上课讲解)
 - 普通的爬虫(以豆瓣电影为例)
 - 需要登录的爬虫(以知乎为例)
@@ -22,7 +15,15 @@ const request = require('request')
 const cheerio = require('cheerio')
 const fs = require('fs')
 
-// 定义一个类来保存电影的信息
+/*
+本文件需要安装两个基本的库
+request 用于下载网页
+cheerio 用于解析网页数据
+
+$ npm install request cheerio
+*/
+
+// 定义类
 const Movie = function() {
     this.name = ''
     this.score = 0
@@ -31,12 +32,11 @@ const Movie = function() {
     this.coverUrl = ''
 }
 
-
 const log = function() {
     console.log.apply(console, arguments)
 }
 
-
+// 从电影 div 里面读取电影信息
 const movieFromDiv = function(div) {
     const movie = new Movie()
     // 使用 cheerio.load 函数来返回一个可以查询的特殊对象
@@ -46,7 +46,6 @@ const movieFromDiv = function(div) {
     movie.name = e('.title').text()
     movie.score = e('.rating_num').text()
     movie.quote = e('.inq').text()
-
     const pic = e('.pic')
     movie.ranking = pic.find('em').text()
     // 元素的属性用 .attr('属性名') 确定
@@ -55,9 +54,8 @@ const movieFromDiv = function(div) {
     return movie
 }
 
-
+// 储存了所有电影对象的数组，保存到文件
 const saveMovies = function(movies) {
-    // 这个函数用来把一个保存了所有电影对象的数组保存到文件中
     const fs = require('fs')
     const path = 'douban.txt'
     // 第二个参数是 null 不用管
@@ -72,7 +70,7 @@ const saveMovies = function(movies) {
     })
 }
 
-
+// 下载封面
 const downloadCovers = function(movies) {
     for (let i = 0; i < movies.length; i++) {
         const m = movies[i]
@@ -80,23 +78,6 @@ const downloadCovers = function(movies) {
         // request('http://abc.com/abc.png').pipe(fs.createWriteStream('abc.png'));
         const path = m.name.split('/')[0] + '.jpg'
         request(url).pipe(fs.createWriteStream(path))
-
-        // request(url, function(error, response, body) {
-        //     // 检查请求是否成功, statusCode 200 是成功的代码
-        //     if (error === null && response.statusCode == 200) {
-        //         const path = m.name.split('/')[0] + '.jpg'
-        //         const mode = 'binary'
-        //         fs.writeFile(path, body, mode, function(err){
-        //             if (err == null) {
-        //                 log('写入图片成功', path)
-        //             } else {
-        //                 log("写入图片失败", path)
-        //             }
-        //         })
-        //     } else {
-        //         log("下载图片失败", url)
-        //     }
-        // })
     }
 }
 
@@ -129,15 +110,9 @@ const moviesFromUrl = function(url) {
     })
 }
 
-
 const __main = function() {
-    // 这是主函数
-    // 下载网页, 解析出电影信息, 保存到文件
     const url = 'https://movie.douban.com/top250'
     moviesFromUrl(url)
 }
 
-
-// 程序开始的主函数
-// __main()
-/********************************** 爬虫 end **************************************/
+__main()
