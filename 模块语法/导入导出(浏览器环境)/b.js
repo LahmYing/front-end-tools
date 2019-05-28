@@ -26,6 +26,9 @@ import any12 from "./a.js"
 
 console.log(any, any12) // boy,boy
 
+// 同时 import 默认方法(_)和其他接口(each, forEach)
+// import _, { each, forEach } from 'lodash';
+
 
 /*****************
 import as

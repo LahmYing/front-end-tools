@@ -16,12 +16,18 @@ export function echo2(value) {
 /*****************
 export default
 *****************/
+// export default命令的本质是将后面的值，赋给default变量
+
 var sex = "boy"
 // sex不能加大括号
 export default sex
 // 原本直接 export sex 外部是无法识别的，加上 default 就可以了.但是一个文件内最多只能有一个 export default。
 // 其实此处相当于为 sex 变量值 "boy" 起了一个系统默认的变量名 default
 // 自然 default 只能有一个值，所以一个文件内不能有多个 export default。
+
+// 正确
+// 42 赋给default变量
+// export default 42;
 
 
 /*****************
@@ -56,4 +62,17 @@ function foo() {
   export default 'bar' // SyntaxError
 }
 foo()
- */
+*/
+
+
+/********************************************
+export 与 import 的复合写法(不推荐)
+********************************************/
+// foo 和 bar 实际上并没有被导入当前模块，只是相当于对外转发了这两个接口，导致当前模块不能直接使用 foo 和 bar
+/*
+export { foo, bar } from 'my_module';
+
+// 可以简单理解为
+import { foo, bar } from 'my_module';
+export { foo, bar };
+*/
