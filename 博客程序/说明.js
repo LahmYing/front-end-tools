@@ -12,19 +12,18 @@ $node appBlog.js
 
 
 目录结构
-│  appBlog.js        后端程序主文件
-│  treeView.txt
+│  appBlog.js-- 运行服务的主文件
 │  说明.js
 │
-├─db
-│      blog.json     存储 blog 数据的文件(相当于数据库)
+├─db-- 数据库
+│      blog.json
 │      comment.json
 │
-├─model
-│      blog.js       处理 blog 数据存取的模块
+├─model-- 处理 blog 数据存取的模块
+│      blog.js
 │      comment.js
 │
-├─route
+├─route-- 前端路由 + 对应的后台 API
 │      blog.js
 │      comment.js
 │      index.js
@@ -37,10 +36,10 @@ $node appBlog.js
 │  │      doge.gif
 │  │
 │  └─js
-│         blogMain.js
+│         blogMain.js-- 被博客主页 html 所调用
 │
 └─template
-        blog_detail.html    博客主页的 html 文件
-        blog_index.html     博客详情页面 html 文件
+        blog_detail.html--  博客详情页面 html 文件
+        blog_index.html--  博客主页的 html 文件
 
 */
