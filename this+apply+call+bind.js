@@ -44,31 +44,17 @@ apply call bind 是用来给函数指定 this 用的
 但是用法稍有区别, 以我们长久以来使用的 log 为例
 */
 var log = function() {
-    // log 是一个函数
-    // js 中的函数是一个对象
-    // 所以函数可以有方法
-    // apply, call, bind 都是函数的方法, 用来指定 this
-    //
-    // apply 接受两个参数
-    // 第一个参数是函数里面的 this, 这里指定了是 console,
-    // 这样就相当于 console.log
-    // 第二个参数是要传给函数的参数列表, 类型是 数组, apply 会把数组
-    // 拆成一个个的参数传给函数
-    // 假设你调用 log(1, 2, 3, 4)
-    // 那么 arguments 是 [1, 2, 3, 4] 这样的一个数组
-    // (实际上 arguments 不是数组, 但是表现和数组一模一样
-    // 你就暂时当它是一个数组)
-    // 下面这句就相当于调用 console.log(1, 2, 3, 4)
     console.log.apply(console, arguments)
+    // func.apply(thisArg, [argsArray])
+    // thisArg
+    //     可选的。在 func 函数运行时使用的 this 值。
+    //     比如上面 console.log 函数运行时使用的 this 值就是 console 了
+    //     比如 o1.hello.apply(o2)，运行时就变成 o2.hello()
+    //     >>> Hi,  xc
+    // argsArray
+    //     可选的。一个数组或者类数组对象，其中的数组元素将作为单独的参数传给 func 函数。
 
-    // o1.hello.apply(o2)
-    // Hi,  xc
-    // 如果 console.log 的 this 只能是 console
-    // 那么 log 函数写成 console.log(arguments) 这样行么？
-
-    // call 和 apply 类似, 但是小有区别, 如下
-    // 第一个参数和 apply 一样
-    // 第 2, 3, 4, 5, ... 个参数会依次作为参数传给函数
+    // call 和 apply 类似
     console.log.call(console, 1, 2, 3, 4)
     // 上面和下面一模一样
     console.log.apply(console, [1, 2, 3, 4])
