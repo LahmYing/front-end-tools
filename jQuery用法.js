@@ -48,7 +48,7 @@ h. ajax 封装
 // jquery 实现的 chest 页面搜索功能
 var input = '<input class=gua-search>'
 $('#id-div-chest-title-container').prepend(input)
-$('.gua-search').on('keyup', function(event){
+$('.gua-search').on('keyup', function(event) {
     var search = event.target
     var v = search.value
     searchTitle(v)
@@ -64,7 +64,7 @@ var searchTitle = function(v) {
 searchTitle = function(v) {
     // 先隐藏所有的 gua-title(添加 gua-hide class)
     $('.gua-title').hide()
-    $('.gua-title').each(function(){
+    $('.gua-title').each(function() {
         var title = $(this)
         if (title.text().toLowerCase().includes(v.toLowerCase())) {
             title.show()

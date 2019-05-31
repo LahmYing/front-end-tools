@@ -26,8 +26,8 @@ o2.hello = function() {
     console.log('Hi, ', this.name)
 }
 // 调用者就是函数前面的 . 左边的对象
-o1.hello()  // 调用者是 o1
-o2.hello()  // 调用者是 o2
+o1.hello() // 调用者是 o1
+o2.hello() // 调用者是 o2
 
 
 // 2
@@ -36,7 +36,7 @@ o2.hello()  // 调用者是 o2
 // 浏览器的全局对象是 window
 // node.js 中全局对象是 global
 // 所以在浏览器中直接调用 greeting() 的话, this 指的是 window
-greeting()  // 调用者是 window
+greeting() // 调用者是 window
 
 
 /*
@@ -93,29 +93,3 @@ var error = console.log.bind(console, '*** ERROR')
 // 下面的调用相当于 console.log('*** ERROR', '错误')
 error('错误')
 // *** ERROR 错误
-
-
-
-/***************
-    闭包
-****************/
-// 习惯一下这种写法, 在函数定义的外面加上圆括号就可以直接调用
-// 前端流行这样写, 所以你必须认识这样的写法
-var a = (function() {
-  var _foo = 1
-  return {
-    // 返回的这个 object 中, 有 get 和 set 两个函数
-    // 这两个函数都引用了 _foo 变量
-    // 所以 _foo 变量不会消失, 但别人也访问不到, 这就是所谓的闭包
-    get: function(){
-      return _foo
-    },
-    set: function(v){
-      _foo = v
-    }
-  }
-})()
-
-console.log('闭包 get', a.get())
-a.set('gw')
-console.log('闭包 get', a.get())
