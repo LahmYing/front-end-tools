@@ -57,7 +57,7 @@ b.new = function(form) {
     var m = new ModelBlog(form)
     // console.log('new blog', form, m)
     // 设置新数据的 id
-    var d = this.data[this.data.length-1]
+    var d = this.data[this.data.length - 1]
     if (d == undefined) {
         m.id = 1
     } else {
@@ -74,11 +74,11 @@ b.new = function(form) {
 b.save = function() {
     var s = JSON.stringify(this.data)
     fs.writeFile(blogFilePath, s, (err) => {
-      if (err) {
-          console.log(err)
-      } else {
-          console.log('保存成功')
-      }
+        if (err) {
+            console.log(err)
+        } else {
+            console.log('保存成功')
+        }
     })
 }
 
