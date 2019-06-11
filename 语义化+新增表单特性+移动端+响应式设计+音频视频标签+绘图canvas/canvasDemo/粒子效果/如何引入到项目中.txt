@@ -1,0 +1,2 @@
+particles.js 是它的库，我们肯定是要引入的，app.js 是参数配置文件，我们也要引入，而 demo 中的 stats.js 就没有必要引入了。
+style.css 我们也可以引入，背景颜色是在css中设置的
