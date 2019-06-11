@@ -1,0 +1,13 @@
+帮助 JS 应用的构建/打包/开发
+
+linter（代码检查）:
+1. 推荐 ESLint
+
+task runner（自动构建）:
+1. npm 脚本、gulp、grun
+2. 推荐 npm 脚本 + webpack
+3. 你不需要学习 Gulp，然而到后面如果你有点时间的话，可以去看看它能否对你的应用有所帮助
+
+模块打包工具:                                                                                             
+1. Parcel、Webpack、Rollup、Browserify, 推荐 Webpack
+2. Rollup 也很常用但是主要建议用到库上面，至于 app，还是以webpack 为主
