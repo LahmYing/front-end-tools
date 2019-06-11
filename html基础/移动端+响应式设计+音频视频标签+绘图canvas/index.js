@@ -9,7 +9,7 @@ HTML5 新内容主要是以下几点
  */
 1.语义化标签如 article、footer、header、nav、section
 2.视频和音频标签 video 和 audio
-3.本地离线存储 localStorage 和 sessionStorage
+// 3.本地离线存储 localStorage 和 sessionStorage
 4.新增表单特性如新控件 calendar email color 等
 5.用于绘图的 canvas 标签(用于游戏等)
 6.用于高性能图形的 WebGL(用于游戏等, 这个是专用领域的知识, 我们不会直接接触)
@@ -79,17 +79,6 @@ a.currentTime
 // 官方文档如下(文档永远是这样的)
 https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
 
-
-
-
-/*
- 存储方法 localStorage 与 sessionStorage
-  */
-HTML5 提供两种存储方法 localStorage 与 sessionStorage
-localStorage 与 sessionStorage 都是用来存储数据的
-使用方式一样, 区别只在于过期时间
-localStorage 没有过期时间, 要用 clear remove 主动删除数据
-sessionStorage 的数据在用户关闭浏览器后将被删除
 
 
 

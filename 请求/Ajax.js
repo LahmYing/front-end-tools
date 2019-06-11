@@ -1,3 +1,5 @@
+// 查看是否为 Ajax 请求
+// chrome -> Network -> XHR 是 Ajax 请求
 
 // 浏览器提供了使用 HTTP 协议收发数据的接口，名为 AJAX
 

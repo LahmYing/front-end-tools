@@ -1,25 +1,3 @@
-// 查看是否为 Ajax 请求
-// chrome -> Network -> XHR 是 Ajax 请求
-
-
-// log
-var log = function() {
-    console.log.apply(console, arguments)
-}
-
-// 函数执行遇到 return 就结束
-var minus = function(a, b) {
-    return a - b
-    log('这一句是不会被执行的, 因为 return 的时候函数就结束了')
-}
-
-// 严格相等
-// 1 === '1'
-// false
-// 1 == '1'
-// true
-
-
 /***************** 字符串/数组 操作 *******************/
 // 字符串可看作数组的一种进行操作
 
@@ -55,13 +33,3 @@ var a2 = [...a1, 4]
 // 解包
 var [a, b] = [1, 2]
 // a b 分别被赋值为 1 2
-
-/***************** 测试套路 *******************/
-var ensure = function(condition, message) {
-    if (!condition) {
-        console.log(message)
-    }
-}
-var testMin = function() {
-    ensure(min([1, 2, 3]) == 1, '123 is not 1')
-}
