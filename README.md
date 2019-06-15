@@ -6,8 +6,6 @@
 - `4.又怎么嵌入到项目中呢？`
 <br/></br>
 <br/></br>
-<br/></br>
-<br/></br>
 - **demo 动图演示**
 
 - `markdown引入canvas动画`
