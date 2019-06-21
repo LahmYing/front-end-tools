@@ -10,9 +10,13 @@
 /* div::after {
   content: '-----------';
 } */
-div::before {
-  /* outline:red dotted; */
+
+/* div::before {
   content: '****************************************';
+} */
+
+h1,h2,h3 {
+  color: green;
 }
 </style>
 <body>
@@ -21,44 +25,49 @@ div::before {
 
     <!-- 文本插值 -->
     <div id="app">
-        文本插值: {{ message }}
+        <h3>文本插值</h3>
+        <p>{{ message }}</p>
     </div>
 
-    <!-- 绑定元素特性 -->
-    <!-- v-bind:title -->
+
     <!-- 绑定 span 元素的 title 属性 -->
     <div id="app-2">
+        <h3>绑定元素特性</h3>
         <span v-bind:title="message">
-            绑定元素特性: 鼠标悬停几秒钟查看此处动态绑定的提示信息！
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
         </span>
     </div>
 
-    <!-- if -->
+
     <div id="app-3">
+        <h3>if</h3>
         <p v-if="seen">if：现在你看到我了</p>
     </div>
 
-    <!-- 循环 -->
+
     <div id="app-4">
+      <h3>循环</h3>
         <ol>
             <li v-for="item in todos">
-                循环：{{ item.text }}
+                {{ item.text }}
             </li>
         </ol>
     </div>
 
-    <!-- 事件监听 -->
+
     <div id="app-5">
+        <h3>监听</h3>
         <!-- 可以改 message 名，在 index.js 对应处也改行了 -->
-        <p>监听：{{ message000 }}</p>
+        <p>{{ message000 }}</p>
         <button v-on:click="reverseMessage">逆转消息</button>
     </div>
 
     <!-- 双向绑定 -->
     <!-- 表单输入和应用状态之间的双向绑定 -->
     <div id="app-6">
-        <p>双向绑定 + 无 v-once：{{ message }}</p>
-        <p v-once>双向绑定 + 有 v-once：{{ message }}</p>
+        <h3>双向绑定</h3>
+        <p>无 v-once：{{ message }}</p>
+        <p v-once>有 v-once：{{ message }}</p>
         <input v-model="message">
     </div>
 
@@ -69,12 +78,13 @@ div::before {
     </div> -->
 
     <div id="app-9">
-        <p>修饰符</p>
+      <h3>修饰符</h3>
         <!-- <button v-on:click="doSomething">监听</button> -->
         <button v-on:click.once="doSomething2">v-on:click.once：.once为修饰符，表示只生效一次</button>
     </div>
 
     <div id="app-10">
+      <h3>v 指令 缩写</h3>
       <p>v-on 缩写为 @</p>
       <p>v-bind 缩写为 :</p>
       <button @click="doSomething">点击</button>
@@ -86,31 +96,29 @@ div::before {
 
     <!-- 计算属性 -->
     <div id="app-11">
-      <p>数据响应变动</p>
+      <h3>数据响应变动</h3>
       <p>message: "{{ message }}"</p>
       <p>reversedMessage: "{{ reversedMessage }}"</p>
       <p>只要 message 还没有发生改变，多次访问 reversedMessage 这一计算属性会立即返回之前的计算结果，而不必再次执行函数</p>
     </div>
 
-    <br></br>
-
     <!-- 计算属性2 -->
     <div id="app-12">
-      <p>数据响应变动</p>
+      <h3>数据响应变动</h3>
       <p>该计算属性将不再更新，因 Date.now() 不像上面示例 reversedMessage 有个 message 可以依赖，没得缓存，不是响应式依赖</p>
       <button v-on:click="doSomething2">不再更新的当前时间</button>
     </div>
 
 
     <div id="app-13">
-      <p>数据响应变动，计算属性的方式 优于 侦听属性的方式</p>
+      <h3>数据响应变动，计算属性的方式 优于 侦听属性的方式</h3>
       <p>侦听属性：命令式的 watch 回调</p>
       <p>fullName = {{ fullName }}</p>
     </div>
 
 
     <div id="app-14">
-      <p>计算属性 设置值(setter) </p>
+      <h3>计算属性 设置值(setter) </h3>
       <p>fullName = {{ fullName }}</p>
       <p>firstName = {{ firstName }}</p>
       <p>lastName = {{ lastName }}</p>
@@ -122,7 +130,7 @@ div::before {
     <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
     <div id="app-15">
-      <p>需要在数据变化时执行 异步 或 开销较大 的操作时</p>
+      <h3>当数据变化时执行 异步 或 开销较大 的操作时</h3>
       <p>需要一个自定义的侦听器</p>
       <p>
         Ask a yes/no question:
@@ -133,6 +141,8 @@ div::before {
 
 
 
+    <h1>Class 与 Style 绑定</h1>
+    <h2>绑定 HTML Class</h2>
 
 
 
