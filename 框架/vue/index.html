@@ -255,6 +255,29 @@
     </div>
   </div>
 
+
+  <h3>频繁切换用 v-show；条件很少改变用 v-if</h3>
+  <h3>v-show 不支持 template 元素、v-else</h3>
+  <h3>还有，不推荐同时使用 v-if 和 v-for</h3>
+
+
+  <h1>列表渲染(用循环渲染多个元素)</h1>
+
+  <h3>v-for 可访问所有父作用域的属性。还支持可选参数 index</h3>
+  <ul id="app-26">
+    <li v-for="(item, index) in items">
+      {{ parentMessage }} - {{ index }} - {{ item.message }}
+    </li>
+  </ul>
+
+  <h3>遍历对象的属性来渲染元素</h3>
+  <h3>支持3参数 (value, name, index)，属性、键名、index</h3>
+  <div id="app-27">
+    <li v-for="(value, name, index) in object">
+      {{ index }}. {{ name }}: {{ value }}
+    </li>
+  </div>
+
   <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
   <script src="index.js"></script>
 </body>
