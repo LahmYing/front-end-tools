@@ -291,3 +291,17 @@ var app20 = new Vue({
     },
   },
 })
+
+
+var app21 = new Vue({
+  el: '#app-21',
+  data: {
+    baseStyles: {
+      color: 'gray',
+      fontSize: '15px',
+    },
+    overridingStyles: {
+      transform: 'rotate(-2deg)',
+    },
+  },
+})
