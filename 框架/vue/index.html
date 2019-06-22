@@ -82,7 +82,7 @@
   <!-- 双向绑定 -->
   <!-- 表单输入和应用状态之间的双向绑定 -->
   <div id="app-6">
-    <h3>双向绑定</h3>
+    <h3>表单输入和应用状态之间的双向绑定</h3>
     <p>无 v-once：{{ message }}</p>
     <p v-once>有 v-once：{{ message }}</p>
     <input v-model="message">
@@ -101,7 +101,7 @@
   </div>
 
   <div id="app-10">
-    <h3>v 指令 缩写</h3>
+    <h3>v 指令缩写</h3>
     <p>v-on 缩写为 @</p>
     <p>v-bind 缩写为 :</p>
     <button @click="doSomething">点击</button>
@@ -123,7 +123,7 @@
   <div id="app-12">
     <h3>数据响应变动</h3>
     <p>该计算属性将不再更新，因 Date.now() 不像上面示例 reversedMessage 有个 message 可以依赖，没得缓存，不是响应式依赖</p>
-    <button v-on:click="doSomething2">不再更新的当前时间</button>
+    <button v-on:click="doSomething2">不更新且只在渲染之初出现的 当前时间</button>
   </div>
 
 
@@ -191,11 +191,69 @@
   <div id="app-21" v-bind:style="[baseStyles, overridingStyles]">v-bind:style="[baseStyles, overridingStyles]"</div>
 
 
+  <h3>为 style 绑定中的属性 提供一个多值数组</h3>
+  <p>如 :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"</p>
+  <p>只会渲染数组中最后一个被浏览器支持的值</p>
 
 
+  <h3>条件渲染</h3>
+  <h4>一次切换多个元素，可用 template 元素包裹</h4>
+  <div id="app-22">
+    <template v-if="awesome">
+      <p>Vue is awesome!</p>
+      <p>Vue is awesome!</p>
+      <p>Vue is awesome!</p>
+    </template>
+    <p v-else>Oh no 😢</p>
+  </div>
 
 
+  <h3>条件渲染</h3>
+  <div id="app-23">
+    <div v-if="type === 'A'">
+      A
+    </div>
+    <div v-else-if="type === 'B'">
+      B
+    </div>
+    <div v-else-if="type === 'C'">
+      C
+    </div>
+    <div v-else>
+      Not A/B/C
+    </div>
+  </div>
 
+  <h3>不清除用户已输入的内容</h3>
+  <div id="app-24">
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address">
+    </template>
+    <div>
+      <button @click='toggleLoginType'>切换登陆方式</button>
+    </div>
+  </div>
+
+
+  <h3>清除用户已输入的内容</h3>
+  <div id="app-25">
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username" key="username-input">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address" key="email-input">
+    </template>
+    <div>
+      <button @click='toggleLoginType'>切换登陆方式</button>
+    </div>
+  </div>
 
   <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
   <script src="index.js"></script>
