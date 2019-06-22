@@ -305,3 +305,51 @@ var app21 = new Vue({
     },
   },
 })
+
+
+
+var app22 = new Vue({
+  el: '#app-22',
+  data: {
+    // awesome:999,
+    awesome: 1,
+  },
+})
+
+
+
+var app23 = new Vue({
+  el: '#app-23',
+  data: {
+    // awesome:999,
+    type: 'C',
+  },
+})
+
+
+
+var app24 = new Vue({
+  el: '#app-24',
+  data: {
+    loginType: 'username'
+  },
+  methods: {
+    toggleLoginType: function () {
+      return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+    }
+  }
+})
+
+
+
+var app25 = new Vue({
+  el: '#app-25',
+  data: {
+    loginType: 'username'
+  },
+  methods: {
+    toggleLoginType: function () {
+      return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+    }
+  }
+})
