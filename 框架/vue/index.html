@@ -2,152 +2,203 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>vue</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <meta charset="utf-8">
+  <title>Vue Demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <style>
-/* div::after {
+  /* div::after {
   content: '-----------';
 } */
 
-/* div::before {
+  /* div::before {
   content: '****************************************';
 } */
 
-h1,h2,h3 {
-  color: green;
-}
+  h1 {
+    color: gray;
+  }
+
+  h2,
+  h3,
+  h4 {
+    color: green;
+  }
+
+
+
+  .error {
+    color: red;
+  }
+
+  .active {
+    color: blue;
+  }
 </style>
+
 <body>
-    <!-- 坑 == src 在前面调用 message 失败 -->
-    <!-- <script src="index.js"></script> -->
+  <!-- 坑 == src 在前面调用 message 失败 -->
+  <!-- <script src="index.js"></script> -->
 
-    <!-- 文本插值 -->
-    <div id="app">
-        <h3>文本插值</h3>
-        <p>{{ message }}</p>
-    </div>
-
-
-    <!-- 绑定 span 元素的 title 属性 -->
-    <div id="app-2">
-        <h3>绑定元素特性</h3>
-        <span v-bind:title="message">
-            鼠标悬停几秒钟查看此处动态绑定的提示信息！
-        </span>
-    </div>
+  <!-- 文本插值 -->
+  <div id="app">
+    <h3>文本插值</h3>
+    <p>{{ message }}</p>
+  </div>
 
 
-    <div id="app-3">
-        <h3>if</h3>
-        <p v-if="seen">if：现在你看到我了</p>
-    </div>
+  <!-- 绑定 span 元素的 title 属性 -->
+  <div id="app-2">
+    <h3>绑定元素特性</h3>
+    <span v-bind:title="message">
+      鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </span>
+  </div>
 
 
-    <div id="app-4">
-      <h3>循环</h3>
-        <ol>
-            <li v-for="item in todos">
-                {{ item.text }}
-            </li>
-        </ol>
-    </div>
+  <div id="app-3">
+    <h3>if</h3>
+    <p v-if="seen">if：现在你看到我了</p>
+  </div>
 
 
-    <div id="app-5">
-        <h3>监听</h3>
-        <!-- 可以改 message 名，在 index.js 对应处也改行了 -->
-        <p>{{ message000 }}</p>
-        <button v-on:click="reverseMessage">逆转消息</button>
-    </div>
-
-    <!-- 双向绑定 -->
-    <!-- 表单输入和应用状态之间的双向绑定 -->
-    <div id="app-6">
-        <h3>双向绑定</h3>
-        <p>无 v-once：{{ message }}</p>
-        <p v-once>有 v-once：{{ message }}</p>
-        <input v-model="message">
-    </div>
+  <div id="app-4">
+    <h3>循环</h3>
+    <ol>
+      <li v-for="item in todos">
+        {{ item.text }}
+      </li>
+    </ol>
+  </div>
 
 
-    <!-- v-bind  -->
-    <!-- <div id="app-8">
+  <div id="app-5">
+    <h3>监听</h3>
+    <!-- 可以改 message 名，在 index.js 对应处也改行了 -->
+    <p>{{ message000 }}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+  </div>
+
+  <!-- 双向绑定 -->
+  <!-- 表单输入和应用状态之间的双向绑定 -->
+  <div id="app-6">
+    <h3>双向绑定</h3>
+    <p>无 v-once：{{ message }}</p>
+    <p v-once>有 v-once：{{ message }}</p>
+    <input v-model="message">
+  </div>
+
+
+  <!-- v-bind  -->
+  <!-- <div id="app-8">
         <pre><a v-bind:href="url">v-bind:href 菜鸟教程</a></pre>
     </div> -->
 
-    <div id="app-9">
-      <h3>修饰符</h3>
-        <!-- <button v-on:click="doSomething">监听</button> -->
-        <button v-on:click.once="doSomething2">v-on:click.once：.once为修饰符，表示只生效一次</button>
-    </div>
+  <div id="app-9">
+    <h3>修饰符</h3>
+    <!-- <button v-on:click="doSomething">监听</button> -->
+    <button v-on:click.once="doSomething2">v-on:click.once：.once为修饰符，表示只生效一次</button>
+  </div>
 
-    <div id="app-10">
-      <h3>v 指令 缩写</h3>
-      <p>v-on 缩写为 @</p>
-      <p>v-bind 缩写为 :</p>
-      <button @click="doSomething">点击</button>
-      <button :title="message">
-          鼠标悬停
-      </button>
-    </div>
-
-
-    <!-- 计算属性 -->
-    <div id="app-11">
-      <h3>数据响应变动</h3>
-      <p>message: "{{ message }}"</p>
-      <p>reversedMessage: "{{ reversedMessage }}"</p>
-      <p>只要 message 还没有发生改变，多次访问 reversedMessage 这一计算属性会立即返回之前的计算结果，而不必再次执行函数</p>
-    </div>
-
-    <!-- 计算属性2 -->
-    <div id="app-12">
-      <h3>数据响应变动</h3>
-      <p>该计算属性将不再更新，因 Date.now() 不像上面示例 reversedMessage 有个 message 可以依赖，没得缓存，不是响应式依赖</p>
-      <button v-on:click="doSomething2">不再更新的当前时间</button>
-    </div>
+  <div id="app-10">
+    <h3>v 指令 缩写</h3>
+    <p>v-on 缩写为 @</p>
+    <p>v-bind 缩写为 :</p>
+    <button @click="doSomething">点击</button>
+    <button :title="message">
+      鼠标悬停
+    </button>
+  </div>
 
 
-    <div id="app-13">
-      <h3>数据响应变动，计算属性的方式 优于 侦听属性的方式</h3>
-      <p>侦听属性：命令式的 watch 回调</p>
-      <p>fullName = {{ fullName }}</p>
-    </div>
+  <!-- 计算属性 -->
+  <div id="app-11">
+    <h3>数据响应变动</h3>
+    <p>message: "{{ message }}"</p>
+    <p>reversedMessage: "{{ reversedMessage }}"</p>
+    <p>只要 message 还没有发生改变，多次访问 reversedMessage 这一计算属性会立即返回之前的计算结果，而不必再次执行函数</p>
+  </div>
+
+  <!-- 计算属性2 -->
+  <div id="app-12">
+    <h3>数据响应变动</h3>
+    <p>该计算属性将不再更新，因 Date.now() 不像上面示例 reversedMessage 有个 message 可以依赖，没得缓存，不是响应式依赖</p>
+    <button v-on:click="doSomething2">不再更新的当前时间</button>
+  </div>
 
 
-    <div id="app-14">
-      <h3>计算属性 设置值(setter) </h3>
-      <p>fullName = {{ fullName }}</p>
-      <p>firstName = {{ firstName }}</p>
-      <p>lastName = {{ lastName }}</p>
-    </div>
+  <div id="app-13">
+    <h3>数据响应变动，计算属性的方式 优于 侦听属性的方式</h3>
+    <p>侦听属性：命令式的 watch 回调</p>
+    <p>fullName = {{ fullName }}</p>
+  </div>
 
 
-    <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
-    <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
-    <div id="app-15">
-      <h3>当数据变化时执行 异步 或 开销较大 的操作时</h3>
-      <p>需要一个自定义的侦听器</p>
-      <p>
-        Ask a yes/no question:
-        <input v-model="question">
-      </p>
-      <p>{{ answer }}</p>
-    </div>
+  <div id="app-14">
+    <h3>计算属性 设置值(setter) </h3>
+    <p>fullName = {{ fullName }}</p>
+    <p>firstName = {{ firstName }}</p>
+    <p>lastName = {{ lastName }}</p>
+  </div>
 
 
-
-    <h1>Class 与 Style 绑定</h1>
-    <h2>绑定 HTML Class</h2>
+  <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+  <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+  <div id="app-15">
+    <h3>当数据变化时执行 异步 或 开销较大 的操作时</h3>
+    <h4>需要一个自定义的侦听器</h4>
+    <p>
+      Ask a yes/no question:
+      <input v-model="question">
+    </p>
+    <p>{{ answer }}</p>
+  </div>
 
 
 
-    <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
-    <script src="index.js"></script>
+  <h1>元素 Class 与 Style 绑定</h1>
+
+  <div id="app-16" class="static" v-bind:class="classObject">
+    <h3>绑定元素 Class (1)对象语法</h3>
+    <p>v-bind:class="classObject", classObject 对象用 计算属性方式 返回，很好用</p>
+  </div>
+
+
+  <div id="app-17" v-bind:class="[isActive ? activeClass : '', errorClass]">
+    <h3>绑定元素 Class (2)数组语法</h3>
+    <p>v-bind:class="[isActive ? activeClass : '', errorClass]"</p>
+  </div>
+
+
+  <div id="app-18">
+    <h3>绑定元素 Class (3)用在组件上</h3>
+    <my-component v-bind:class="{ active: isActive }"></my-component>
+    <!-- <p>isActive 为真则渲染为 `<p class="foo bar active">Hi</p>` </p> -->
+  </div>
+
+
+  <h1>绑定 style 内联样式</h1>
+  <h3>绑定 style 内联样式 (1)对象语法</h3>
+  <div id="app-19" v-bind:style="styleObject">v-bind:style="styleObject"</div>
+
+
+  <h3>绑定 style 内联样式 (2)数组语法</h3>
+  <div id="app-20" v-bind:style="[baseStyles, overridingStyles]">v-bind:style="[baseStyles, overridingStyles]"</div>
+
+  <h3>-webkit- 等前缀 Vue 会自动识别并添加</h3>
+  <!-- <div id="app-20" v-bind:style="[baseStyles, overridingStyles]">v-bind:style="[baseStyles, overridingStyles]"</div> -->
+
+
+
+
+
+
+
+
+  <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
+  <script src="index.js"></script>
 </body>
 
 
