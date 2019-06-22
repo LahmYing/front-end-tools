@@ -341,7 +341,6 @@ var app24 = new Vue({
 })
 
 
-
 var app25 = new Vue({
   el: '#app-25',
   data: {
@@ -350,6 +349,30 @@ var app25 = new Vue({
   methods: {
     toggleLoginType: function () {
       return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+    }
+  }
+})
+
+
+var app26 = new Vue({
+  el: '#app-26',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+
+
+var app27 = new Vue({
+  el: '#app-27',
+  data: {
+    object: {
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
     }
   }
 })
