@@ -16,7 +16,7 @@
 } */
 
   h1 {
-    color: gray;
+    color: #d43e3e;
   }
 
   h2,
@@ -40,6 +40,7 @@
   <!-- 坑 == src 在前面调用 message 失败 -->
   <!-- <script src="index.js"></script> -->
 
+  <h1>模板语法</h1>
   <!-- 文本插值 -->
   <div id="app">
     <h3>文本插值</h3>
@@ -111,6 +112,7 @@
   </div>
 
 
+  <h1>计算属性和侦听器</h1>
   <!-- 计算属性 -->
   <div id="app-11">
     <h3>数据响应变动</h3>
@@ -179,7 +181,7 @@
   </div>
 
 
-  <h1>绑定 style 内联样式</h1>
+  <!-- <h1>绑定 style 内联样式</h1> -->
   <h3>绑定 style 内联样式 (1)对象语法</h3>
   <div id="app-19" v-bind:style="styleObject">v-bind:style="styleObject"</div>
 
@@ -269,6 +271,12 @@
       {{ parentMessage }} - {{ index }} - {{ item.message }}
     </li>
   </ul>
+  <p>打开控制台， app26.items.push({ message: 'Baz' })</p>
+  <p>此时操作数组，页面也会渲染</p>
+  <p>如果数组方法会返回 一个新数组，可以如下操作</p>
+  <p>app26.items = app26.items.filter(function (item) {
+    return item.message.match(/Foo/)
+    })</p>
 
   <h3>遍历对象的属性来渲染元素</h3>
   <h3>支持3参数 (value, name, index)，属性、键名、index</h3>
@@ -277,6 +285,41 @@
       {{ index }}. {{ name }}: {{ value }}
     </li>
   </div>
+  <h3> v-for 默认使用“就地更新”的策略，建议和 key 一起使用，如下</h3>
+  <p>v-for="item in items" v-bind:key="item.id"</p>
+
+  <h1>此后多讲解少 demo</h1>
+
+  <h3>以下的数组变动，Vue 不能直接做成响应</h3>
+  <p>1.当你利用索引直接设置一个数组项时，例如：vm.items[indexOfItem] = newValue</p>
+  <p>2.当你修改数组的长度时，例如：vm.items.length = newLength</p>
+  <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">解决</a>
+
+
+  <h3>对于已经创建的实例，Vue 不允许动态添加 根级别的响应式属性</h3>
+  <p>
+    var vm = new Vue({
+    data: {
+    a: 1
+    }
+    });
+    vm.b = 2;
+    // vm.b 不是响应式的
+  </p>
+  <a href="https://cn.vuejs.org/v2/guide/list.html#%E5%AF%B9%E8%B1%A1%E5%8F%98%E6%9B%B4%E6%A3%80%E6%B5%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">解决</a>
+
+
+  <h3>显示一个数组过滤或排序后的版本而不动原始数据</h3>
+  <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%98%BE%E7%A4%BA%E8%BF%87%E6%BB%A4-%E6%8E%92%E5%BA%8F%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C">解决</a>
+
+
+
+
+
+
+
+
+
 
   <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
   <script src="index.js"></script>
