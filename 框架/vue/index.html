@@ -313,6 +313,26 @@
   <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%98%BE%E7%A4%BA%E8%BF%87%E6%BB%A4-%E6%8E%92%E5%BA%8F%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C">解决</a>
 
 
+  <h3>@ 事件的处理尽量写在 实例的 methods:{} 而不是 data{} 中</h3>
+  <p>
+    methods: {
+    greet: function (event) {}
+    }
+  </p>
+  <a href="https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95">解决</a>
+
+
+  <h3>事件修饰符,丰富事件机制</h3>
+  <p>v-on:click.stop="doThis" // 阻止单击事件继续传播</p>
+  <p>v-on:click.prevent.self 会阻止所有的点击</p>
+  <p>v-on:click.self.prevent 只会阻止对元素自身的点击</p>
+  <a href="https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6">解决</a>
+
+
+  <h3>按键修饰符</h3>
+  <p>v-on:keyup.enter="submit" // 只有在 `key` 是 `Enter` 时调用 `vm.submit()`</p>
+  <p>ctrl\alt\shift\meta，为系统修饰键，用法不同，详见 链接</p>
+  <a href="https://cn.vuejs.org/v2/guide/events.html#%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">解决</a>
 
 
 
