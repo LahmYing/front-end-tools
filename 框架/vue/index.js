@@ -143,7 +143,7 @@ var app12 = new Vue({
   // 计算属性的写法 computed
   computed: {
     doSomething2: function() {
-      return alert('不更新且只在渲染之初出现的计算属性：' + Date.now())
+      return console.log('app12, 不更新且只在渲染之初出现的计算属性：' + Date.now())
     }
   }
 })
@@ -373,6 +373,25 @@ var app27 = new Vue({
       title: 'How to do lists in Vue',
       author: 'Jane Doe',
       publishedAt: '2016-04-10'
+    }
+  }
+})
+
+
+Vue.component('alert-box', {
+  template: `
+    <div class="demo-alert-box">
+      <slot></slot>
+    </div>
+  `
+})
+var app28 = new Vue({
+  el: '#app-28',
+  data: {
+    // object: {
+    //   title: 'How to do lists in Vue',
+    //   author: 'Jane Doe',
+    //   publishedAt: '2016-04-10'
     }
   }
 })
