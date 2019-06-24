@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<style>
+  /* div::after {
+  content: '-----------';
+} */
+
+  /* div::before {
+  content: '****************************************';
+} */
+
+  h1 {
+    color: #d43e3e;
+  }
+
+  h2,
+  h3,
+  h4 {
+    color: green;
+  }
+
+
+
+  .error {
+    color: red;
+  }
+
+  .active {
+    color: blue;
+  }
+</style>
+
+<body>
+  <!-- 坑 == src 在前面调用 message 失败 -->
+  <!-- <script src="index.js"></script> -->
+
+  <h1>模板语法</h1>
+  <!-- 文本插值 -->
+  <div id="app">
+    <h3>文本插值</h3>
+    <p>{{ message }}</p>
+  </div>
+
+
+  <!-- 绑定 span 元素的 title 属性 -->
+  <div id="app-2">
+    <h3>绑定元素特性</h3>
+    <span v-bind:title="message">
+      鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </span>
+  </div>
+
+
+  <div id="app-3">
+    <h3>if</h3>
+    <p v-if="seen">if：现在你看到我了</p>
+  </div>
+
+
+  <div id="app-4">
+    <h3>循环</h3>
+    <ol>
+      <li v-for="item in todos">
+        {{ item.text }}
+      </li>
+    </ol>
+  </div>
+
+
+  <div id="app-5">
+    <h3>监听</h3>
+    <!-- 可以改 message 名，在 index.js 对应处也改行了 -->
+    <p>{{ message000 }}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+  </div>
+
+  <!-- 双向绑定 -->
+  <!-- 表单输入和应用状态之间的双向绑定 -->
+  <div id="app-6">
+    <h3>表单输入和应用状态之间的双向绑定</h3>
+    <p>无 v-once：{{ message }}</p>
+    <p v-once>有 v-once：{{ message }}</p>
+    <input v-model="message">
+  </div>
+
+
+  <!-- v-bind  -->
+  <!-- <div id="app-8">
+        <pre><a v-bind:href="url">v-bind:href 菜鸟教程</a></pre>
+    </div> -->
+
+  <div id="app-9">
+    <h3>修饰符</h3>
+    <!-- <button v-on:click="doSomething">监听</button> -->
+    <button v-on:click.once="doSomething2">v-on:click.once：.once为修饰符，表示只生效一次</button>
+  </div>
+
+  <div id="app-10">
+    <h3>v 指令缩写</h3>
+    <p>v-on 缩写为 @</p>
+    <p>v-bind 缩写为 :</p>
+    <button @click="doSomething">点击</button>
+    <button :title="message">
+      鼠标悬停
+    </button>
+  </div>
+
+
+  <h1>计算属性和侦听器</h1>
+  <!-- 计算属性 -->
+  <div id="app-11">
+    <h3>数据响应变动</h3>
+    <p>message: "{{ message }}"</p>
+    <p>reversedMessage: "{{ reversedMessage }}"</p>
+    <p>只要 message 还没有发生改变，多次访问 reversedMessage 这一计算属性会立即返回之前的计算结果，而不必再次执行函数</p>
+  </div>
+
+  <!-- 计算属性2 -->
+  <div id="app-12">
+    <h3>数据响应变动</h3>
+    <p>该计算属性将不再更新，因 Date.now() 不像上面示例 reversedMessage 有个 message 可以依赖，没得缓存，不是响应式依赖</p>
+    <button v-on:click="doSomething2">不更新且只在渲染之初出现的 当前时间</button>
+  </div>
+
+
+  <div id="app-13">
+    <h3>数据响应变动，计算属性的方式 优于 侦听属性的方式</h3>
+    <p>侦听属性：命令式的 watch 回调</p>
+    <p>fullName = {{ fullName }}</p>
+  </div>
+
+
+  <div id="app-14">
+    <h3>计算属性 设置值(setter) </h3>
+    <p>fullName = {{ fullName }}</p>
+    <p>firstName = {{ firstName }}</p>
+    <p>lastName = {{ lastName }}</p>
+  </div>
+
+
+  <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+  <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+  <div id="app-15">
+    <h3>当数据变化时执行 异步 或 开销较大 的操作时</h3>
+    <h4>需要一个自定义的侦听器</h4>
+    <p>
+      Ask a yes/no question:
+      <input v-model="question">
+    </p>
+    <p>{{ answer }}</p>
+  </div>
+
+
+
+  <h1>元素 Class 与 Style 绑定</h1>
+
+  <div id="app-16" class="static" v-bind:class="classObject">
+    <h3>绑定元素 Class (1)对象语法</h3>
+    <p>v-bind:class="classObject", classObject 对象用 计算属性方式 返回，很好用</p>
+  </div>
+
+
+  <div id="app-17" v-bind:class="[isActive ? activeClass : '', errorClass]">
+    <h3>绑定元素 Class (2)数组语法</h3>
+    <p>v-bind:class="[isActive ? activeClass : '', errorClass]"</p>
+  </div>
+
+
+  <div id="app-18">
+    <h3>绑定元素 Class (3)用在组件上</h3>
+    <my-component v-bind:class="{ active: isActive }"></my-component>
+    <!-- <p>isActive 为真则渲染为 `<p class="foo bar active">Hi</p>` </p> -->
+  </div>
+
+
+  <!-- <h1>绑定 style 内联样式</h1> -->
+  <h3>绑定 style 内联样式 (1)对象语法</h3>
+  <div id="app-19" v-bind:style="styleObject">v-bind:style="styleObject"</div>
+
+
+  <h3>绑定 style 内联样式 (2)数组语法</h3>
+  <div id="app-20" v-bind:style="[baseStyles, overridingStyles]">v-bind:style="[baseStyles, overridingStyles]"</div>
+
+  <h3>-webkit- 等前缀 Vue 会自动识别并添加 (没看到效果)</h3>
+  <div id="app-21" v-bind:style="[baseStyles, overridingStyles]">v-bind:style="[baseStyles, overridingStyles]"</div>
+
+
+  <h3>为 style 绑定中的属性 提供一个多值数组</h3>
+  <p>如 :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"</p>
+  <p>只会渲染数组中最后一个被浏览器支持的值</p>
+
+
+  <h3>条件渲染</h3>
+  <h4>一次切换多个元素，可用 template 元素包裹</h4>
+  <div id="app-22">
+    <template v-if="awesome">
+      <p>Vue is awesome!</p>
+      <p>Vue is awesome!</p>
+      <p>Vue is awesome!</p>
+    </template>
+    <p v-else>Oh no 😢</p>
+  </div>
+
+
+  <h3>条件渲染</h3>
+  <div id="app-23">
+    <div v-if="type === 'A'">
+      A
+    </div>
+    <div v-else-if="type === 'B'">
+      B
+    </div>
+    <div v-else-if="type === 'C'">
+      C
+    </div>
+    <div v-else>
+      Not A/B/C
+    </div>
+  </div>
+
+  <h3>不清除用户已输入的内容</h3>
+  <div id="app-24">
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address">
+    </template>
+    <div>
+      <button @click='toggleLoginType'>切换登陆方式</button>
+    </div>
+  </div>
+
+
+  <h3>清除用户已输入的内容</h3>
+  <div id="app-25">
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username" key="username-input">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address" key="email-input">
+    </template>
+    <div>
+      <button @click='toggleLoginType'>切换登陆方式</button>
+    </div>
+  </div>
+
+
+  <h3>频繁切换用 v-show；条件很少改变用 v-if</h3>
+  <h3>v-show 不支持 template 元素、v-else</h3>
+  <h3>还有，不推荐同时使用 v-if 和 v-for</h3>
+
+
+  <h1>列表渲染(用循环渲染多个元素)</h1>
+
+  <h3>v-for 可访问所有父作用域的属性。还支持可选参数 index</h3>
+  <ul id="app-26">
+    <li v-for="(item, index) in items">
+      {{ parentMessage }} - {{ index }} - {{ item.message }}
+    </li>
+  </ul>
+  <p>打开控制台， app26.items.push({ message: 'Baz' })</p>
+  <p>此时操作数组，页面也会渲染</p>
+  <p>如果数组方法会返回 一个新数组，可以如下操作</p>
+  <p>app26.items = app26.items.filter(function (item) {
+    return item.message.match(/Foo/)
+    })</p>
+
+  <h3>遍历对象的属性来渲染元素</h3>
+  <h3>支持3参数 (value, name, index)，属性、键名、index</h3>
+  <div id="app-27">
+    <li v-for="(value, name, index) in object">
+      {{ index }}. {{ name }}: {{ value }}
+    </li>
+  </div>
+  <h3> v-for 默认使用“就地更新”的策略，建议和 key 一起使用，如下</h3>
+  <p>v-for="item in items" v-bind:key="item.id"</p>
+
+  <!-- <h1>此后多讲解少 demo</h1> -->
+
+  <h3>以下的数组变动，Vue 不能直接做成响应</h3>
+  <p>1.当你利用索引直接设置一个数组项时，例如：vm.items[indexOfItem] = newValue</p>
+  <p>2.当你修改数组的长度时，例如：vm.items.length = newLength</p>
+  <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">以下的数组变动，Vue 不能直接做成响应</a>
+
+
+  <h3>对于已经创建的实例，Vue 不允许动态添加 根级别的响应式属性</h3>
+  <p>
+    var vm = new Vue({
+    data: {
+    a: 1
+    }
+    });
+    vm.b = 2;
+    // vm.b 不是响应式的
+  </p>
+  <a href="https://cn.vuejs.org/v2/guide/list.html#%E5%AF%B9%E8%B1%A1%E5%8F%98%E6%9B%B4%E6%A3%80%E6%B5%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">对于已经创建的实例，Vue 不允许动态添加 根级别的响应式属性</a>
+
+
+  <h3>显示一个数组过滤或排序后的版本而不动原始数据</h3>
+  <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%98%BE%E7%A4%BA%E8%BF%87%E6%BB%A4-%E6%8E%92%E5%BA%8F%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C">显示一个数组过滤或排序后的版本而不动原始数据</a>
+
+  <h1>事件处理</h1>
+
+  <h3>@ 事件的处理尽量写在 实例的 methods:{} 而不是 data{} 中</h3>
+  <p>
+    methods: {
+    greet: function (event) {}
+    }
+  </p>
+  <a href="https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95">事件处理</a>
+
+
+  <h3>事件修饰符,丰富事件机制</h3>
+  <p>v-on:click.stop="doThis" // 阻止单击事件继续传播</p>
+  <p>v-on:click.prevent.self 会阻止所有的点击</p>
+  <p>v-on:click.self.prevent 只会阻止对元素自身的点击</p>
+  <a href="https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6">事件修饰符</a>
+
+
+  <h3>按键修饰符</h3>
+  <p>v-on:keyup.enter="submit" // 只有在 `key` 是 `Enter` 时调用 `vm.submit()`</p>
+  <p>ctrl\alt\shift\meta，为系统修饰键，用法不同，详见 链接，加 .exact 可精确触发，如下：</p>
+  <p>@click.ctrl.exact="onCtrlClick" // 有且只有 Ctrl 被按下的时候才触发</p>
+  <p>click .left/.right/.middle 可限制 鼠标按钮</p>
+  <a href="https://cn.vuejs.org/v2/guide/events.html#%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">按键修饰符</a>
+
+  <h1>在表单 input、textarea 及 select 元素上创建双向数据绑定</h1>
+  <a href="https://cn.vuejs.org/v2/guide/forms.html">创建双向数据绑定</a>
+  <p>input v-model="message" // 文本</p>
+  <p>textarea v-model="message" // 多行文本</p>
+  <p>input type="checkbox" id="checkbox" v-model="checked" // 复选 checkbox</p>
+  <p>input type="radio" id="one" value="One" v-model="picked" // 单选按钮</p>
+  <p>select v-model="selected" // 选择下拉框</p>
+
+  <h3>对于 以上有选项的，v-model 绑定的值通常是静态字符串</h3>
+  <h3>绑定 Vue 实例的动态属性，可用 v-bind</h3>
+  <a href="https://cn.vuejs.org/v2/guide/forms.html#%E5%80%BC%E7%BB%91%E5%AE%9A">绑定 Vue 实例的动态属性</a>
+
+  <h3>针对以上的修饰符</h3>
+  <a href="https://cn.vuejs.org/v2/guide/forms.html#%E5%80%BC%E7%BB%91%E5%AE%9A">针对以上的修饰符</a>
+  <p>input v-model.lazy="msg" // 在“change”时而非“input”时更新</p>
+  <p>input v-model.number="age" // 用户的输入值转为数值类型</p>
+  <p>input v-model.trim="msg" // 自动过滤用户输入的首尾空白字符</p>
+
+
+  <h1>组件基础</h1>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0">组件的 data 必须是函数，不然不同组件会互相影响</a>
+
+  <h3>Vue 实例 传递数据到自定义组件(通过 Prop)</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87-Prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">Vue 实例 传递数据到自定义组件(通过 Prop)</a>
+
+  <h3>传递数据对象/数组之类(包含多属性/数据)，使组件用起来更简洁</h3>
+  <p>比如 v-bind:title="post.title", v-bind:content="post.content"，直接 v-bind:post="post" 再处理</p>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87-Prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">传递数据对象/数组之类(包含多属性/数据)，使组件用起来更简洁</a>
+
+  <h3>监听子组件事件</h3>
+  <p>父组件：v-on:enlarge-text="postFontSize += 0.1"</p>
+  <p>子组件(button)：button v-on:click="$emit('enlarge-text')"</p>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6">监听子组件事件</a>
+
+  <h3>组件事件抛出一个值</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E4%BD%BF%E7%94%A8%E4%BA%8B%E4%BB%B6%E6%8A%9B%E5%87%BA%E4%B8%80%E4%B8%AA%E5%80%BC">组件事件抛出一个值</a>
+
+  <h3>在组件上使用 v-model 的双向数据绑定</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">在组件上使用 v-model 的双向数据绑定</a>
+
+  <h3>向一个组件传递内容(如警告消息)，slot 标签更方便</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87%E6%8F%92%E6%A7%BD%E5%88%86%E5%8F%91%E5%86%85%E5%AE%B9">向一个组件传递内容(如警告消息)，slot 标签更方便</a>
+  <p>示例如下：</p>
+  <div id="app-28">
+    <alert-box>
+      Error!Something bad happened.
+    </alert-box>
+  </div>
+
+  <h3>组件 遇到 有约束条件的元素 ul、ol、table 等</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E8%A7%A3%E6%9E%90-DOM-%E6%A8%A1%E6%9D%BF%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">组件 遇到 有约束条件的元素 ul、ol、table 等</a>
+
+
+
+
+  <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
+  <script src="index.js"></script>
+</body>
+
+
+
+</html>
