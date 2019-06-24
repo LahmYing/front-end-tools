@@ -293,7 +293,7 @@
   <h3>以下的数组变动，Vue 不能直接做成响应</h3>
   <p>1.当你利用索引直接设置一个数组项时，例如：vm.items[indexOfItem] = newValue</p>
   <p>2.当你修改数组的长度时，例如：vm.items.length = newLength</p>
-  <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">解决</a>
+  <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">以下的数组变动，Vue 不能直接做成响应</a>
 
 
   <h3>对于已经创建的实例，Vue 不允许动态添加 根级别的响应式属性</h3>
@@ -306,11 +306,11 @@
     vm.b = 2;
     // vm.b 不是响应式的
   </p>
-  <a href="https://cn.vuejs.org/v2/guide/list.html#%E5%AF%B9%E8%B1%A1%E5%8F%98%E6%9B%B4%E6%A3%80%E6%B5%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">解决</a>
+  <a href="https://cn.vuejs.org/v2/guide/list.html#%E5%AF%B9%E8%B1%A1%E5%8F%98%E6%9B%B4%E6%A3%80%E6%B5%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">对于已经创建的实例，Vue 不允许动态添加 根级别的响应式属性</a>
 
 
   <h3>显示一个数组过滤或排序后的版本而不动原始数据</h3>
-  <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%98%BE%E7%A4%BA%E8%BF%87%E6%BB%A4-%E6%8E%92%E5%BA%8F%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C">解决</a>
+  <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%98%BE%E7%A4%BA%E8%BF%87%E6%BB%A4-%E6%8E%92%E5%BA%8F%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C">显示一个数组过滤或排序后的版本而不动原始数据</a>
 
   <h1>事件处理</h1>
 
@@ -320,14 +320,14 @@
     greet: function (event) {}
     }
   </p>
-  <a href="https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95">解决</a>
+  <a href="https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95">事件处理</a>
 
 
   <h3>事件修饰符,丰富事件机制</h3>
   <p>v-on:click.stop="doThis" // 阻止单击事件继续传播</p>
   <p>v-on:click.prevent.self 会阻止所有的点击</p>
   <p>v-on:click.self.prevent 只会阻止对元素自身的点击</p>
-  <a href="https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6">解决</a>
+  <a href="https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6">事件修饰符</a>
 
 
   <h3>按键修饰符</h3>
@@ -335,11 +335,26 @@
   <p>ctrl\alt\shift\meta，为系统修饰键，用法不同，详见 链接，加 .exact 可精确触发，如下：</p>
   <p>@click.ctrl.exact="onCtrlClick" // 有且只有 Ctrl 被按下的时候才触发</p>
   <p>click .left/.right/.middle 可限制 鼠标按钮</p>
-  <a href="https://cn.vuejs.org/v2/guide/events.html#%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">解决</a>
+  <a href="https://cn.vuejs.org/v2/guide/events.html#%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">按键修饰符</a>
 
-  <h1>表单输入绑定</h1>
+  <h1>在表单 input、textarea 及 select 元素上创建双向数据绑定</h1>
+  <a href="https://cn.vuejs.org/v2/guide/forms.html">创建双向数据绑定</a>
+  <p>input v-model="message" // 文本</p>
+  <p>textarea v-model="message" // 多行文本</p>
+  <p>input type="checkbox" id="checkbox" v-model="checked" // 复选 checkbox</p>
+  <p>input type="radio" id="one" value="One" v-model="picked" // 单选按钮</p>
+  <p>select v-model="selected" // 选择下拉框</p>
+  <h3>对于 以上有选项的，v-model 绑定的值通常是静态字符串</h3>
+  <h3>绑定 Vue 实例的动态属性，可用 v-bind</h3>
+  <a href="https://cn.vuejs.org/v2/guide/forms.html#%E5%80%BC%E7%BB%91%E5%AE%9A">绑定 Vue 实例的动态属性</a>
+  <h3>针对以上的修饰符</h3>
+  <a href="https://cn.vuejs.org/v2/guide/forms.html#%E5%80%BC%E7%BB%91%E5%AE%9A">针对以上的修饰符</a>
+  <p>input v-model.lazy="msg" // 在“change”时而非“input”时更新</p>
+  <p>input v-model.number="age" // 用户的输入值转为数值类型</p>
+  <p>input v-model.trim="msg" // 自动过滤用户输入的首尾空白字符</p>
 
 
+  <h1>组件基础</h1>
 
 
 
