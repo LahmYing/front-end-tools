@@ -344,9 +344,11 @@
   <p>input type="checkbox" id="checkbox" v-model="checked" // 复选 checkbox</p>
   <p>input type="radio" id="one" value="One" v-model="picked" // 单选按钮</p>
   <p>select v-model="selected" // 选择下拉框</p>
+
   <h3>对于 以上有选项的，v-model 绑定的值通常是静态字符串</h3>
   <h3>绑定 Vue 实例的动态属性，可用 v-bind</h3>
   <a href="https://cn.vuejs.org/v2/guide/forms.html#%E5%80%BC%E7%BB%91%E5%AE%9A">绑定 Vue 实例的动态属性</a>
+
   <h3>针对以上的修饰符</h3>
   <a href="https://cn.vuejs.org/v2/guide/forms.html#%E5%80%BC%E7%BB%91%E5%AE%9A">针对以上的修饰符</a>
   <p>input v-model.lazy="msg" // 在“change”时而非“input”时更新</p>
@@ -355,6 +357,34 @@
 
 
   <h1>组件基础</h1>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0">组件的 data 必须是函数，不然不同组件会互相影响</a>
+
+  <h3>Vue 实例 传递数据到自定义组件(通过 Prop)</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87-Prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">Vue 实例 传递数据到自定义组件(通过 Prop)</a>
+
+  <h3>传递数据对象/数组之类(包含多属性/数据)，使组件用起来更简洁</h3>
+  <p>比如 v-bind:title="post.title", v-bind:content="post.content"，直接 v-bind:post="post" 再处理</p>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87-Prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">传递数据对象/数组之类(包含多属性/数据)，使组件用起来更简洁</a>
+
+  <h3>监听子组件事件</h3>
+  <p>父组件：v-on:enlarge-text="postFontSize += 0.1"</p>
+  <p>子组件(button)：button v-on:click="$emit('enlarge-text')"</p>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6">监听子组件事件</a>
+
+  <h3>组件事件抛出一个值</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E4%BD%BF%E7%94%A8%E4%BA%8B%E4%BB%B6%E6%8A%9B%E5%87%BA%E4%B8%80%E4%B8%AA%E5%80%BC">组件事件抛出一个值</a>
+
+  <h3>在组件上使用 v-model 的双向数据绑定</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">在组件上使用 v-model 的双向数据绑定</a>
+
+  <h3>向一个组件传递内容(如警告消息)，slot 标签更方便</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87%E6%8F%92%E6%A7%BD%E5%88%86%E5%8F%91%E5%86%85%E5%AE%B9">向一个组件传递内容(如警告消息)，slot 标签更方便</a>
+  <p>示例如下：</p>
+  <div id="app-28">
+    <alert-box>
+      Error!Something bad happened.
+    </alert-box>
+  </div>
 
 
 
