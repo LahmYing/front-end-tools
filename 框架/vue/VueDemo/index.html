@@ -400,15 +400,34 @@
   <a href="https://cn.vuejs.org/v2/guide/components-registration.html#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C">基础组件的自动化全局注册</a>
 
 
-  <h1>prop</h1>
+  <h1>prop(组件的与 Vue 实例的数据接口)</h1>
   <h3>可以指定类型</h3>
   <p>props: {
-  title: String,
-  likes: Number,
-  isPublished: Boolean
-}</p>
+    title: String,
+    likes: Number,
+    isPublished: Boolean
+    }</p>
 
   <h3>传递静态或动态 Prop</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E4%BC%A0%E9%80%92%E9%9D%99%E6%80%81%E6%88%96%E5%8A%A8%E6%80%81-Prop">传递静态或动态 Prop</a>
+
+  <h3>父组件流入子组件的单向数据流</h3>
+  <p>子组件不应当改变父组件状态(比如父组件 A，俩子组件 B、C 都有 A 的一个 prop:'title'，B 改了 A 的 'title' 会影响到 C)</p>
+  <p>解决：新定义一个( data 属性/计算属性)来接收父组件 prop 的数据</p>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81">父组件流入子组件的单向数据流</a>
+
+  <h3>对 prop 数据接口进行限制</h3>
+  <p>类型检查、必填还是可选、默认初始值等</p>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E9%AA%8C%E8%AF%81">对 prop 数据接口进行限制</a>
+
+
+
+
+
+
+
+
+
 
   <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
   <script src="index.js"></script>
