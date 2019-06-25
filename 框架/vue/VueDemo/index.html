@@ -420,15 +420,42 @@
   <p>类型检查、必填还是可选、默认初始值等</p>
   <a href="https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E9%AA%8C%E8%AF%81">对 prop 数据接口进行限制</a>
 
+  <h3>Vue 实例新增的特性会自动添加到 组件 的根元素中</h3>
+  <p>bootstrap-date-input data-date-picker="activated"</p>
+  <p>data-date-picker="activated" 特性就会自动添加到 组件 bootstrap-date-input 的根元素上</p>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E9%9D%9E-Prop-%E7%9A%84%E7%89%B9%E6%80%A7">对 prop 数据接口进行限制</a>
+
+  <h3>数据流向：实例 → 组件</h3>
+  <h3>如果你不希望 组件的根元素 继承特性</h3>
+  <p>切换 下面 demo 的 js 中的 inheritAttrs 可看到效果</p>
+  <div id='app-29' class="">
+    <base-input v-model="username" required placeholder="Enter your username"></base-input>
+  </div>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E7%A6%81%E7%94%A8%E7%89%B9%E6%80%A7%E7%BB%A7%E6%89%BF">如果你不希望 组件的根元素 继承特性</a>
+
+  <h3>事件名</h3>
+  <p>推荐你始终使用 kebab-case 的事件名，如下：</p>
+  <p>HTML：my-component v-on:my-event="doSomething"</p>
+  <p>js：this.$emit('my-event')</p>
+  <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#%E4%BA%8B%E4%BB%B6%E5%90%8D">事件名</a>
 
 
+  <h3>在组件中进一步调整 v-model</h3>
+  <p>场景：像单选框、复选框等类型的输入控件可能会将 value 特性用于不同的目的</p>
+  <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E7%9A%84-v-model">在组件中进一步调整 v-model</a>
 
 
+  <h3>将原生事件绑定到组件</h3>
+  <p>eg：base-input v-on:focus.native="onFocus" // .native</p>
+  <p>进一步：Vue 提供了一个 $listeners 属性</p>
 
 
+  <h3>更新 prop 的高级做法：.sync 修饰符</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6">更新 prop 的高级做法：.sync 修饰符</a>
 
 
-
+  <h3>插槽 slot 标签的进一步用法</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD">插槽 slot 标签的进一步用法</a>
   <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
   <script src="index.js"></script>
 </body>
