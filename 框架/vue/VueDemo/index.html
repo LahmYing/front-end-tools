@@ -454,8 +454,52 @@
   <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6">更新 prop 的高级做法：.sync 修饰符</a>
 
 
-  <h3>插槽 slot 标签的进一步用法</h3>
+  <h3>插槽 slot 的作用域</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components-slots.html#%E7%BC%96%E8%AF%91%E4%BD%9C%E7%94%A8%E5%9F%9F">插槽 slot 的作用域</a>
+  <div id='app-30' v-bind:user='user'>
+    <!--
+    绑定属性的写法：
+      原生标签 div 等：v-bind:user='user'
+      组件 ：url="/profile"
+    注意：一个有 v-bind 一个没有
+ -->
+    <!-- navigation-link 可以访问到 实例属性 user -->
+    <navigation-link url="/profile">
+      Logged in as {{ user.name }}
+    </navigation-link>
+    <!-- <navigation-link url="/profile"> -->
+    <!-- Clicking here will send you to: {{ url }}  -->
+    <!--
+  这里的 `url` 会是 undefined，因为 "/profile" 是
+  _传递给_ <navigation-link> 的而不是
+  在 <navigation-link> 组件*内部*定义的。
+  -->
+    <!-- </navigation-link> -->
+  </div>
+
+
+  <h3>多个插槽的 slot </h3>
   <a href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD">插槽 slot 标签的进一步用法</a>
+  <div class="container" id='app-31'>
+    <header>
+      <slot name="header"></slot>
+    </header>
+    <main>
+      <slot></slot>
+    </main>
+    <footer>
+      <slot name="footer"></slot>
+    </footer>
+  </div>
+
+
+
+
+
+
+
+
+
   <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
   <script src="index.js"></script>
 </body>
