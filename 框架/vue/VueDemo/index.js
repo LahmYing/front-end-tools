@@ -334,7 +334,7 @@ var app24 = new Vue({
     loginType: 'username'
   },
   methods: {
-    toggleLoginType: function () {
+    toggleLoginType: function() {
       return this.loginType = this.loginType === 'username' ? 'email' : 'username'
     }
   }
@@ -347,7 +347,7 @@ var app25 = new Vue({
     loginType: 'username'
   },
   methods: {
-    toggleLoginType: function () {
+    toggleLoginType: function() {
       return this.loginType = this.loginType === 'username' ? 'email' : 'username'
     }
   }
@@ -358,9 +358,12 @@ var app26 = new Vue({
   el: '#app-26',
   data: {
     parentMessage: 'Parent',
-    items: [
-      { message: 'Foo' },
-      { message: 'Bar' }
+    items: [{
+        message: 'Foo'
+      },
+      {
+        message: 'Bar'
+      }
     ]
   }
 })
@@ -387,11 +390,57 @@ Vue.component('alert-box', {
 })
 var app28 = new Vue({
   el: '#app-28',
+  data: {}
+})
+
+
+Vue.component('base-input', {
+  // 切换 inheritAttrs 可看到 组件是否继承特性的 效果
+  inheritAttrs: false,
+  props: ['label', 'value'],
+  template: `
+    <label>
+      {{ label }}
+      <input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+      >
+    </label>
+  `
+})
+var app29 = new Vue({
+  el: '#app-29',
   data: {
-    // object: {
-    //   title: 'How to do lists in Vue',
-    //   author: 'Jane Doe',
-    //   publishedAt: '2016-04-10'
+    required: true,
+    placeholder: 'Enter your username',
+    username: ''
+  }
+})
+
+
+Vue.component('navigation-link', {
+  props: ['url'],
+  // slot 是访问不到 a 中的 url
+  // 因为 url 的流动：<navigation-link url="/profile"> → navigation-link 组件内部
+  // 而不是在 组件内部定义的
+  template: `
+  <a
+    v-bind:href="url"
+    class="nav-link"
+  >
+    <slot>Enter username</slot>
+  </a>
+`
+  // Enter username 用户无输入时作为默认内容出现
+})
+var app30 = new Vue({
+  el: '#app-30',
+  data: function() {
+    return {
+      user: {
+        name: ''
+      }
     }
   }
 })
