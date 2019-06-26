@@ -84,12 +84,12 @@ Vue.component('todo-item', {
 //     }
 // })
 
-var app8 = new Vue({
-  el: '#app-8',
-  data: {
-    url: 'http://www.runoob.com',
-  }
-})
+// var app8 = new Vue({
+//   el: '#app-8',
+//   data: {
+//     url: 'http://www.runoob.com',
+//   }
+// })
 
 var app9 = new Vue({
   el: '#app-9',
@@ -474,24 +474,148 @@ var app31 = new Vue({
 })
 
 
-Vue.component('current-user', {
-  props: ['user'],
-  template: `
-  <span>
-    <slot v-bind:user="user">
-      {{ user.lastName }}
-    </slot>
-  </span>
-`
-})
-var app32 = new Vue({
-  el: '#app-32',
-  data: function() {
-    return {
-      user: {
-        firstName: 'fff',
-        lastName: 'lll'
-      }
+// Vue.component('current-user', {
+//   props: ['user'],
+//   template: `
+//   <span>
+//     <slot v-bind:user="user">
+//       {{ user.lastName }}
+//     </slot>
+//   </span>
+// `
+// })
+// var app32 = new Vue({
+//   el: '#app-32',
+//   data: function() {
+//     return {
+//       user: {
+//         firstName: 'fff',
+//         lastName: 'lll'
+//       }
+//     }
+//   }
+// })
+
+
+/****************
+混入
+**************/
+// 定义一个混入对象
+var myMixin = {
+  created: function () {
+    this.hello()
+  },
+  methods: {
+    hello: function () {
+      console.log('hello from mixin!')
     }
+  }
+}
+// 定义一个使用混入对象的组件
+// Vue.extend 创建一个 Vue 构造器的子类，可以像 new Vue 那样来创建实例
+var Component = Vue.extend({
+  mixins: [myMixin]
+})
+var app33 = new Component({el: '#app-33',}) // => "hello from mixin!"
+
+
+// 混入后内部合并的例子
+var mixin = {
+  methods: {
+    foo: function () {
+      console.log('foo')
+    },
+    conflicting: function () {
+      console.log('from mixin')
+    }
+  }
+}
+var app34 = new Vue({
+  mixins: [mixin],
+  methods: {
+    bar: function () {
+      console.log('bar')
+    },
+    conflicting: function () {
+      console.log('from self')
+    }
+  }
+})
+app34.foo() // => "foo"
+app34.bar() // => "bar"
+app34.conflicting() // => "from self"
+
+
+// 全局混入
+// 为自定义的选项 'myOption' 注入一个处理器。
+Vue.mixin({
+  created: function () {
+    // this.$options 中新增 myOption
+    var myOption = this.$options.myOption
+    if (myOption) {
+      console.log(myOption)
+    }
+  }
+})
+
+var app35 = new Vue({
+  el: '#app-35',
+  myOption: '全局混入!'
+})
+// => "hello!"
+
+
+
+
+/****************
+渲染函数 & JSX
+**************/
+//------------------------------------- 渲染函数
+// eg1
+Vue.component('anchored-heading', {
+  render: function (createElement) {
+    return createElement(
+      'h' + this.level,   // 标签名称
+      this.$slots.default // 子节点数组
+    )
+  },
+  props: {
+    level: {
+      type: Number,
+      required: true
+    }
+  }
+})
+
+var app36 = new Vue({
+  el: '#app-36',
+})
+
+
+// eg2
+Vue.component('eg2', {
+  render: function (createElement) {
+    return createElement('h1', this.title)
+  },
+  props: {
+    title:'',
+  }
+})
+
+// eg3
+Vue.component('eg3', {
+  render: function (createElement) {
+    // this.$parent.title 指的是 eg3 组件的父级，即 div #app-37 的 title
+    return createElement('h1', this.$parent.title)
+  },
+  props: {
+
+  }
+})
+
+var app37 = new Vue({
+  el: '#app-37',
+  data:{
+    title:'parent-title',
   }
 })
