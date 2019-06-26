@@ -444,3 +444,54 @@ var app30 = new Vue({
     }
   }
 })
+
+
+Vue.component('base-layout', {
+  // props: ['url'],
+  template: `
+  <div class="container">
+    <header>
+      <slot name="header"></slot>
+    </header>
+    <main>
+      <slot></slot>
+    </main>
+    <footer>
+      <slot name="footer"></slot>
+    </footer>
+  </div>
+`
+})
+var app31 = new Vue({
+  el: '#app-31',
+  data: function() {
+    return {
+      // user: {
+      //   name: ''
+      // }
+    }
+  }
+})
+
+
+Vue.component('current-user', {
+  props: ['user'],
+  template: `
+  <span>
+    <slot v-bind:user="user">
+      {{ user.lastName }}
+    </slot>
+  </span>
+`
+})
+var app32 = new Vue({
+  el: '#app-32',
+  data: function() {
+    return {
+      user: {
+        firstName: 'fff',
+        lastName: 'lll'
+      }
+    }
+  }
+})
