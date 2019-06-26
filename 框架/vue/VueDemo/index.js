@@ -592,16 +592,6 @@ var app36 = new Vue({
 })
 
 
-// eg2
-Vue.component('eg2', {
-  render: function (createElement) {
-    return createElement('h1', this.title)
-  },
-  props: {
-    title:'',
-  }
-})
-
 // eg3
 Vue.component('eg3', {
   render: function (createElement) {
