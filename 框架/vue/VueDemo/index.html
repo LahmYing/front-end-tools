@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Vue Demo</title>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- 生产版本，如下 -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> -->
 </head>
 <style>
   /* div::after {
@@ -546,7 +547,8 @@
 
 
   <h3>场景：解决组件相互依赖时又要用 webpack 等 </h3>
-  <p>场景：Vue 构建一个文件目录树时，会出现 组件 A、B 相互依赖的情况(在渲染树中互为对方的后代和祖先), 在 Vue.component 全局注册组件时能解决，但用 webpack 等来依赖/导入组件时会有问题，解决如下： </p>
+  <p>场景：Vue 构建一个文件目录树时，会出现 组件 A、B 相互依赖的情况(在渲染树中互为对方的后代和祖先), 在 Vue.component 全局注册组件时能解决，</p>
+  <p>但用 webpack 等来依赖/导入组件时会有问题，解决如下： </p>
   <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8">解决组件相互依赖时又要用 webpack 等</a>
 
   <h3>模板定义的替代品 </h3>
@@ -556,6 +558,50 @@
   <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E6%A8%A1%E6%9D%BF%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9B%BF%E4%BB%A3%E5%93%81">控制更新</a>
 
   <h3>混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能</h3>
+
+  <h3>定义一个使用混入对象的组件</h3>
+  <div id='app-33'>
+    <component>定义一个使用混入对象的组件</component>
+  </div>
+
+  <h3>混入的选项合并</h3>
+  <div id='app-34'>
+    混入的选项合并
+  </div>
+
+  <h3>全局混入</h3>
+  <div id='app-35'>
+    全局混入
+  </div>
+
+
+  <h3>自定义指令(跳过)</h3>
+
+
+  <h3>渲染函数 & JSX</h3>
+  <p>demo1</p>
+  <div id='app-36'>
+    <anchored-heading level='1'>1</anchored-heading>
+    <anchored-heading level='2'>2</anchored-heading>
+    <anchored-heading level='3'>3</anchored-heading>
+    <anchored-heading level='4'>4</anchored-heading>
+    <anchored-heading level='5'>5</anchored-heading>
+  </div>
+  <p>demo2</p>
+  <div id='app-37'>
+    <!-- <eg2></eg2> -->
+    <!-- 以下两种方式都是调用 app37 实例 data 的 title -->
+    <h1>{{ title }}</h1>
+    <eg3></eg3>
+  </div>
+
+
+
+
+
+
+
+
 
   <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
   <script src="index.js"></script>
