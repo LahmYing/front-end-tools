@@ -359,7 +359,6 @@
 
 
   <h1>组件基础</h1>
-  <a href="https://cn.vuejs.org/v2/guide/components.html#data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0">组件的 data 必须是函数，不然不同组件会互相影响</a>
   <p>示例：</p>
   <div id="components-demo">
     <button-counter></button-counter>
@@ -367,7 +366,7 @@
     <button-counter></button-counter>
   </div>
 
-  <h3>组件注册</h3>
+  <h1>组件注册</h1>
   <h3>全局组件在各自内部可互用</h3>
   <h3>局部组件, 示例：</h3>
   <div id="register">
@@ -384,15 +383,53 @@
   <h3>很多组件里都需要 import 基础组件，很长，怎么简洁 → 基础组件的自动化全局注册</h3>
   <a href="https://cn.vuejs.org/v2/guide/components-registration.html#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C">基础组件的自动化全局注册</a>
 
-
+  <h1>Prop</h1>
   <h3>Vue 实例 传递数据 =》 组件(通过 Prop)</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87-Prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">Vue 实例 传递数据到自定义组件(通过 Prop)</a>
   <h3>传递静态 Prop, 示例：</h3>
   <div id="static-prop">
     <blog-post title="My journey with Vue"></blog-post>
     <blog-post title="Blogging with Vue"></blog-post>
     <blog-post title="Why Vue is so fun"></blog-post>
   </div>
+  <h3>传递动态 Prop, 示例：</h3>
+  <div id="dynamic-prop">
+    <dynamic-prop v-for="post in posts" v-bind:post="post"></dynamic-prop>
+  </div>
+  <h3>Prop 的大小写</h3>
+  <p>props: {'postTitle'} 在 HTML 中是 post-title</p>
+  <h3>Prop 可以指定类型</h3>
+  <p>props: {
+    title: String,
+    likes: Number,
+    isPublished: Boolean,
+    commentIds: Array,
+    author: Object,
+    callback: Function,
+    contactsPromise: Promise
+    }</p>
+  <h3>包含该 prop 没有值的情况在内，都意味着 `true`</h3>
+  <p>《blog-post is-published》《/blog-post》 // is-published 即为 true</p>
+  <h3>传入一个对象的所有属性</h3>
+  <p>v-bind (取代 v-bind:prop-name)，示例：</p>
+  <div id="obj-prop">
+    <!-- post: {id: 1, title: 'My Journey with Vue'}  -->
+    <!-- v-bind="post" 相当于 v-bind:id="post.id" v-bind:title="post.title" -->
+    <!-- 故 props: ['id', 'title'], 而不是 props: ['post'] -->
+    <obj-prop v-bind="post"></obj-prop>
+  </div>
+
+  <h3>prop 流动：父 => 子，子级应该新建基于 prop 的拷贝以防止改动父级 prop</h3>
+  <p>示例：暂缺</p>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81">prop 流动：父 => 子</a>
+
+
+
+
+
+
+
+
+
 
   <h3>传递数据对象/数组之类(包含多属性/数据)，使组件用起来更简洁</h3>
   <p>比如 v-bind:title="post.title", v-bind:content="post.content"，直接 v-bind:post="post" 再处理</p>
@@ -421,27 +458,6 @@
   <h3>组件 遇到 有约束条件的元素 ul、ol、table 等</h3>
   <a href="https://cn.vuejs.org/v2/guide/components.html#%E8%A7%A3%E6%9E%90-DOM-%E6%A8%A1%E6%9D%BF%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">组件 遇到 有约束条件的元素 ul、ol、table 等</a>
 
-
-
-
-
-
-
-  <h1>prop(组件的与 Vue 实例的数据接口)</h1>
-  <h3>可以指定类型</h3>
-  <p>props: {
-    title: String,
-    likes: Number,
-    isPublished: Boolean
-    }</p>
-
-  <h3>传递静态或动态 Prop</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E4%BC%A0%E9%80%92%E9%9D%99%E6%80%81%E6%88%96%E5%8A%A8%E6%80%81-Prop">传递静态或动态 Prop</a>
-
-  <h3>父组件流入子组件的单向数据流</h3>
-  <p>子组件不应当改变父组件状态(比如父组件 A，俩子组件 B、C 都有 A 的一个 prop:'title'，B 改了 A 的 'title' 会影响到 C)</p>
-  <p>解决：新定义一个( data 属性/计算属性)来接收父组件 prop 的数据</p>
-  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81">父组件流入子组件的单向数据流</a>
 
   <h3>对 prop 数据接口进行限制</h3>
   <p>类型检查、必填还是可选、默认初始值等</p>
