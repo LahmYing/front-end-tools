@@ -311,7 +311,7 @@ var static_prop_demo = new Vue({
 
 //----------------传递动态 Prop 用 v-bind-------------------
 
-Vue.component('blog-post', {
+Vue.component('dynamic-prop', {
   props: ['post'],
   template: `
     <div class="blog-post">
@@ -321,29 +321,67 @@ Vue.component('blog-post', {
   `
 })
 
-new Vue({
-  el: '#blog-post-demo',
+var dynamic_prop_demo = new Vue({
+  el: '#dynamic-prop',
   data: {
     posts: [{
         id: 1,
-        title: 'My journey with Vue'
+        title: '1',
+        content: 'dynamic-prop1'
       },
       {
         id: 2,
-        title: 'Blogging with Vue'
+        title: '2',
+        content: 'dynamic-prop2'
       },
       {
         id: 3,
-        title: 'Why Vue is so fun'
+        title: '3',
+        content: 'dynamic-prop3'
       }
     ]
   }
 })
 
-// <blog-post
-//   v-for="post in posts"
-//   v-bind:key="post.id"
-//   v-bind:title="post.title"
-// ></blog-post>
 
-//----------------监听子组件事件-------------------
+
+//----------------Prop 传入一个对象的所有属性-------------------
+
+Vue.component('obj-prop', {
+  props: ['id', 'title'],
+  template: `
+    <div>
+      <p>id = {{ id }}</p>
+      <p>title = {{ title }}</p>
+    </div>
+  `
+})
+
+var obj_prop_demo = new Vue({
+  el: '#obj-prop',
+  data: {
+    post: {
+      id: 1,
+      title: 'My Journey with Vue'
+    }
+  }
+})
+
+
+//------prop 流动：父 => 子，子级应该新建基于 prop 的拷贝以防止改动父级 prop-------------------
+
+// 定义一个本地的 data 属性并将这个 prop 用作其初始值
+// props: ['initialCounter'],
+// data: function () {
+//   return {
+//     counter: this.initialCounter
+//   }
+// }
+
+// 定义一个计算属性，进行转换
+// props: ['size'],
+// computed: {
+//   normalizedSize: function () {
+//     return this.size.trim().toLowerCase()
+//   }
+// }
