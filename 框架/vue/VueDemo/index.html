@@ -360,9 +360,39 @@
 
   <h1>组件基础</h1>
   <a href="https://cn.vuejs.org/v2/guide/components.html#data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0">组件的 data 必须是函数，不然不同组件会互相影响</a>
+  <p>示例：</p>
+  <div id="components-demo">
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+  </div>
 
-  <h3>Vue 实例 传递数据到自定义组件(通过 Prop)</h3>
+  <h3>组件注册</h3>
+  <h3>全局组件在各自内部可互用</h3>
+  <h3>局部组件, 示例：</h3>
+  <div id="register">
+    <component-a></component-a>
+    <component-b></component-b>
+  </div>
+  <h3>局部组件互用的设置, 示例：</h3>
+  <div id="register2">
+    <component-a2></component-a2>
+    <component-b2>
+      <component-a2></component-a2>
+    </component-b2>
+  </div>
+  <h3>很多组件里都需要 import 基础组件，很长，怎么简洁 → 基础组件的自动化全局注册</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components-registration.html#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C">基础组件的自动化全局注册</a>
+
+
+  <h3>Vue 实例 传递数据 =》 组件(通过 Prop)</h3>
   <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87-Prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">Vue 实例 传递数据到自定义组件(通过 Prop)</a>
+  <h3>传递静态 Prop, 示例：</h3>
+  <div id="static-prop">
+    <blog-post title="My journey with Vue"></blog-post>
+    <blog-post title="Blogging with Vue"></blog-post>
+    <blog-post title="Why Vue is so fun"></blog-post>
+  </div>
 
   <h3>传递数据对象/数组之类(包含多属性/数据)，使组件用起来更简洁</h3>
   <p>比如 v-bind:title="post.title", v-bind:content="post.content"，直接 v-bind:post="post" 再处理</p>
@@ -391,15 +421,10 @@
   <h3>组件 遇到 有约束条件的元素 ul、ol、table 等</h3>
   <a href="https://cn.vuejs.org/v2/guide/components.html#%E8%A7%A3%E6%9E%90-DOM-%E6%A8%A1%E6%9D%BF%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">组件 遇到 有约束条件的元素 ul、ol、table 等</a>
 
-  <h1>深入了解组件</h1>
-  <h3>组件注册</h3>
-  <h3>全局组件 各自内部可互用</h3>
 
-  <h3>局部组件互用(看例子，莫看文字解释，反而混)</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-registration.html#%E5%B1%80%E9%83%A8%E6%B3%A8%E5%86%8C">局部组件互用(看例子，莫看文字解释，反而混)</a>
 
-  <h3>很多组件里都需要 import 基础组件，很长，怎么简洁 → 基础组件的自动化全局注册</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-registration.html#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C">基础组件的自动化全局注册</a>
+
+
 
 
   <h1>prop(组件的与 Vue 实例的数据接口)</h1>
@@ -607,6 +632,7 @@
 
   <!-- 只有当实例被创建时 data 中存在的属性才是响应式的 -->
   <script src="index.js"></script>
+  <script src="component.js"></script>
 </body>
 
 
