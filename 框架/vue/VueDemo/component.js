@@ -53,7 +53,7 @@ Vue.component('navigation-link', {
 })
 var app30 = new Vue({
   el: '#app-30',
-  data: function() {
+  data: function () {
     return {
       user: {
         name: ''
@@ -81,7 +81,7 @@ Vue.component('base-layout', {
 })
 var app31 = new Vue({
   el: '#app-31',
-  data: function() {
+  data: function () {
     return {
       // user: {
       //   name: ''
@@ -119,11 +119,11 @@ var app31 = new Vue({
 **************/
 // 定义一个混入对象
 var myMixin = {
-  created: function() {
+  created: function () {
     this.hello()
   },
   methods: {
-    hello: function() {
+    hello: function () {
       console.log('hello from mixin!')
     }
   }
@@ -141,10 +141,10 @@ var app33 = new Component({
 // 混入后内部合并的例子
 var mixin = {
   methods: {
-    foo: function() {
+    foo: function () {
       console.log('foo')
     },
-    conflicting: function() {
+    conflicting: function () {
       console.log('from mixin')
     }
   }
@@ -152,10 +152,10 @@ var mixin = {
 var app34 = new Vue({
   mixins: [mixin],
   methods: {
-    bar: function() {
+    bar: function () {
       console.log('bar')
     },
-    conflicting: function() {
+    conflicting: function () {
       console.log('from self')
     }
   }
@@ -168,7 +168,7 @@ app34.conflicting() // => "from self"
 // 全局混入
 // 为自定义的选项 'myOption' 注入一个处理器。
 Vue.mixin({
-  created: function() {
+  created: function () {
     // this.$options 中新增 myOption
     var myOption = this.$options.myOption
     if (myOption) {
@@ -190,7 +190,7 @@ var app35 = new Vue({
 //-----------------渲染函数--------------------
 // eg1
 Vue.component('anchored-heading', {
-  render: function(createElement) {
+  render: function (createElement) {
     return createElement(
       'h' + this.level, // 标签名称
       this.$slots.default // 子节点数组
@@ -211,7 +211,7 @@ var app36 = new Vue({
 
 // eg3
 Vue.component('eg3', {
-  render: function(createElement) {
+  render: function (createElement) {
     // this.$parent.title 指的是 eg3 组件的父级，即 div #app-37 的 title
     return createElement('h1', this.$parent.title)
   },
@@ -236,7 +236,7 @@ var app37 = new Vue({
 Vue.component('button-counter', {
   // 一个组件的 data 选项必须是一个函数
   // 可以维护一份被返回对象(这里是 count) 的独立的拷贝
-  data: function() {
+  data: function () {
     return {
       count: 0
     }
@@ -325,20 +325,20 @@ var dynamic_prop_demo = new Vue({
   el: '#dynamic-prop',
   data: {
     posts: [{
-        id: 1,
-        title: '1',
-        content: 'dynamic-prop1'
-      },
-      {
-        id: 2,
-        title: '2',
-        content: 'dynamic-prop2'
-      },
-      {
-        id: 3,
-        title: '3',
-        content: 'dynamic-prop3'
-      }
+      id: 1,
+      title: '1',
+      content: 'dynamic-prop1'
+    },
+    {
+      id: 2,
+      title: '2',
+      content: 'dynamic-prop2'
+    },
+    {
+      id: 3,
+      title: '3',
+      content: 'dynamic-prop3'
+    }
     ]
   }
 })
@@ -442,3 +442,31 @@ Vue.component('base-input', {
   `
 })
 */
+
+
+//------组件监听 模板内部元素 提交的事件-------------------
+
+Vue.component('blog-post3', {
+  props: ['post'],
+  template: '\
+    <div class="blog-post3">\
+      <h3>{{ post.title }}</h3>\
+      <button v-on:click="$emit(\'enlarge-text\')">\
+        Enlarge text\
+      </button>\
+      <div v-html="post.content"></div>\
+    </div>\
+  '
+})
+new Vue({
+  el: '#blog-posts-events-demo',
+  data: {
+    posts: [
+      { id: 1, title: 'My journey with Vue', content: 'content' },
+      { id: 2, title: 'Blogging with Vue', content: 'content' },
+      { id: 3, title: 'Why Vue is so fun', content: 'content' }
+    ],
+    postFontSize: 1
+  }
+})
+
