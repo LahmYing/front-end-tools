@@ -22,12 +22,13 @@
   }
 
   h2,
-  h3,
-  h4 {
+  h3 {
     color: green;
   }
 
-
+h4 {
+    color: red;
+  }
 
   .error {
     color: red;
@@ -152,7 +153,7 @@
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
   <div id="app-15">
     <h3>当数据变化时执行 异步 或 开销较大 的操作时</h3>
-    <h4>需要一个自定义的侦听器</h4>
+    <h3>需要一个自定义的侦听器</h3>
     <p>
       Ask a yes/no question:
       <input v-model="question">
@@ -201,7 +202,7 @@
 
 
   <h3>条件渲染</h3>
-  <h4>一次切换多个元素，可用 template 元素包裹</h4>
+  <h3>一次切换多个元素，可用 template 元素包裹</h3>
   <div id="app-22">
     <template v-if="awesome">
       <p>Vue is awesome!</p>
@@ -308,11 +309,14 @@
     vm.b = 2;
     // vm.b 不是响应式的
   </p>
-  <a href="https://cn.vuejs.org/v2/guide/list.html#%E5%AF%B9%E8%B1%A1%E5%8F%98%E6%9B%B4%E6%A3%80%E6%B5%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">对于已经创建的实例，Vue 不允许动态添加 根级别的响应式属性</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/list.html#%E5%AF%B9%E8%B1%A1%E5%8F%98%E6%9B%B4%E6%A3%80%E6%B5%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">对于已经创建的实例，Vue
+    不允许动态添加 根级别的响应式属性</a>
 
 
   <h3>显示一个数组过滤或排序后的版本而不动原始数据</h3>
-  <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%98%BE%E7%A4%BA%E8%BF%87%E6%BB%A4-%E6%8E%92%E5%BA%8F%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C">显示一个数组过滤或排序后的版本而不动原始数据</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/list.html#%E6%98%BE%E7%A4%BA%E8%BF%87%E6%BB%A4-%E6%8E%92%E5%BA%8F%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C">显示一个数组过滤或排序后的版本而不动原始数据</a>
 
   <h1>事件处理</h1>
 
@@ -381,7 +385,8 @@
     </component-b2>
   </div>
   <h3>很多组件里都需要 import 基础组件，很长，怎么简洁 → 基础组件的自动化全局注册</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-registration.html#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C">基础组件的自动化全局注册</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-registration.html#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C">基础组件的自动化全局注册</a>
 
   <h1>Prop</h1>
   <h3>Vue 实例 传递数据 =》 组件(通过 Prop)</h3>
@@ -420,23 +425,57 @@
 
   <h3>prop 流动：父 => 子，子级应该新建基于 prop 的拷贝以防止改动父级 prop</h3>
   <p>示例：暂缺</p>
-  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81">prop 流动：父 => 子</a>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81">prop 流动：父
+    => 子</a>
 
   <h3>Prop 验证：类型检查+默认值+带有默认值的对象+自定义验证函数</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E9%AA%8C%E8%AF%81">Prop 验证：类型检查+默认值+带有默认值的对象+自定义验证函数</a>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E9%AA%8C%E8%AF%81">Prop
+    验证：类型检查+默认值+带有默认值的对象+自定义验证函数</a>
 
   <h3>组件可以接受任意特性 且 特性会被添加到该组件的模板根元素上</h3>
   <p>假如《bootstrap-date-input data-date-picker="activated"》根元素为 《input》</p>
   <p>data-date-picker 特性就被加到 组件 input 上</p>
-  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E9%9D%9E-Prop-%E7%9A%84%E7%89%B9%E6%80%A7">组件可以接受任意特性 且 特性会被添加到该组件的模板根元素上</a>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E9%9D%9E-Prop-%E7%9A%84%E7%89%B9%E6%80%A7">组件可以接受任意特性 且
+    特性会被添加到该组件的模板根元素上</a>
 
   <h3>如果不希望组件的根元素继承特性</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E7%A6%81%E7%94%A8%E7%89%B9%E6%80%A7%E7%BB%A7%E6%89%BF">组件可以接受任意特性 且 特性会被添加到该组件的模板根元素上</a>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E7%A6%81%E7%94%A8%E7%89%B9%E6%80%A7%E7%BB%A7%E6%89%BF">组件可以接受任意特性
+    且 特性会被添加到该组件的模板根元素上</a>
 
+  <h1>模板内部事件</h1>
+  <h3>组件监听 模板内部元素 提交的事件</h3>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6">组件监听
+    模板内部元素 提交的事件</a>
+  <p>示例：</p>
+  <div id="blog-posts-events-demo">
+    <div :style="{ fontSize: postFontSize + 'em' }">
+      <blog-post3 v-for="post in posts" :key="post.id" :post="post" @enlarge-text="postFontSize += 0.1"></blog-post3>
+    </div>
+  </div>
+  <h3>模板内部事件 抛出一个值</h3>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E4%BD%BF%E7%94%A8%E4%BA%8B%E4%BB%B6%E6%8A%9B%E5%87%BA%E4%B8%80%E4%B8%AA%E5%80%BC">模板内部事件
+    抛出一个值</a>
 
+  <h3>在组件上使用 v-model 的双向数据绑定(对模板内部有要求)</h3>
+  <p>效果：《custom-input v-model="searchText"》《/custom-input》</p>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">在组件上使用
+    v-model 的双向数据绑定</a>
 
+  <h3>在组件上使用 v-model，将 抛出值 用于不同目的的处理</h3>
+  <p>场景：单选框、复选框等</p>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">
+    在组件上使用 v-model，将 抛出值 用于不同目的的处理</a>
 
-
+    
+  <h3>在组件的根元素(即内部模板最外层的 div)上直接监听一个原生事件</h3>
+  <h4>内部模板事件发生在哪一层有啥区别？</h4>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">
+    在组件的根元素(即内部模板最外层的 div)上直接监听一个原生事件</a>
 
 
 
@@ -462,21 +501,17 @@
 
   <h3>传递数据对象/数组之类(包含多属性/数据)，使组件用起来更简洁</h3>
   <p>比如 v-bind:title="post.title", v-bind:content="post.content"，直接 v-bind:post="post" 再处理</p>
-  <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87-Prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">传递数据对象/数组之类(包含多属性/数据)，使组件用起来更简洁</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87-Prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">传递数据对象/数组之类(包含多属性/数据)，使组件用起来更简洁</a>
 
-  <h3>监听子组件事件</h3>
-  <p>父组件：v-on:enlarge-text="postFontSize += 0.1"</p>
-  <p>子组件(button)：button v-on:click="$emit('enlarge-text')"</p>
-  <a href="https://cn.vuejs.org/v2/guide/components.html#%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6">监听子组件事件</a>
 
-  <h3>组件事件抛出一个值</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components.html#%E4%BD%BF%E7%94%A8%E4%BA%8B%E4%BB%B6%E6%8A%9B%E5%87%BA%E4%B8%80%E4%B8%AA%E5%80%BC">组件事件抛出一个值</a>
 
-  <h3>在组件上使用 v-model 的双向数据绑定</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components.html#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">在组件上使用 v-model 的双向数据绑定</a>
+
 
   <h3>向一个组件传递内容(如警告消息)，slot 标签更方便</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87%E6%8F%92%E6%A7%BD%E5%88%86%E5%8F%91%E5%86%85%E5%AE%B9">向一个组件传递内容(如警告消息)，slot 标签更方便</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87%E6%8F%92%E6%A7%BD%E5%88%86%E5%8F%91%E5%86%85%E5%AE%B9">向一个组件传递内容(如警告消息)，slot
+    标签更方便</a>
   <p>示例如下：</p>
   <div id="app-28">
     <alert-box>
@@ -485,7 +520,9 @@
   </div>
 
   <h3>组件 遇到 有约束条件的元素 ul、ol、table 等</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components.html#%E8%A7%A3%E6%9E%90-DOM-%E6%A8%A1%E6%9D%BF%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">组件 遇到 有约束条件的元素 ul、ol、table 等</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E8%A7%A3%E6%9E%90-DOM-%E6%A8%A1%E6%9D%BF%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">组件
+    遇到 有约束条件的元素 ul、ol、table 等</a>
 
 
   <h3>对 prop 数据接口进行限制</h3>
@@ -499,7 +536,8 @@
   <div id='app-29' class="">
     <base-input v-model="username" required placeholder="Enter your username"></base-input>
   </div>
-  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E7%A6%81%E7%94%A8%E7%89%B9%E6%80%A7%E7%BB%A7%E6%89%BF">如果你不希望 组件的根元素 继承特性</a>
+  <a href="https://cn.vuejs.org/v2/guide/components-props.html#%E7%A6%81%E7%94%A8%E7%89%B9%E6%80%A7%E7%BB%A7%E6%89%BF">如果你不希望
+    组件的根元素 继承特性</a>
 
   <h3>事件名</h3>
   <p>推荐你始终使用 kebab-case 的事件名，如下：</p>
@@ -508,9 +546,6 @@
   <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#%E4%BA%8B%E4%BB%B6%E5%90%8D">事件名</a>
 
 
-  <h3>在组件中进一步调整 v-model</h3>
-  <p>场景：像单选框、复选框等类型的输入控件可能会将 value 特性用于不同的目的</p>
-  <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E7%9A%84-v-model">在组件中进一步调整 v-model</a>
 
 
   <h3>将原生事件绑定到组件</h3>
@@ -519,11 +554,13 @@
 
 
   <h3>更新 prop 的高级做法：.sync 修饰符</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6">更新 prop 的高级做法：.sync 修饰符</a>
+  <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6">更新 prop
+    的高级做法：.sync 修饰符</a>
 
 
   <h3>插槽 slot 的作用域</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-slots.html#%E7%BC%96%E8%AF%91%E4%BD%9C%E7%94%A8%E5%9F%9F">插槽 slot 的作用域</a>
+  <a href="https://cn.vuejs.org/v2/guide/components-slots.html#%E7%BC%96%E8%AF%91%E4%BD%9C%E7%94%A8%E5%9F%9F">插槽 slot
+    的作用域</a>
   <div id='app-30' v-bind:user='user'>
     <!--
     绑定属性的写法：
@@ -583,13 +620,16 @@
   <h1>动态组件、异步组件</h1>
   <h3>场景：多标签的界面，切换组件，想保持这些组件的状态，避免反复重渲染 </h3>
   <h3>解决：keep-alive 标签包裹住动态组件</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%9C%A8%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-keep-alive">解决：keep-alive 标签包裹住动态组件</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%9C%A8%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-keep-alive">解决：keep-alive
+    标签包裹住动态组件</a>
 
 
   <h3>异步组件</h3>
   <h3>场景：大组件大应用切割开来，需要的时候才从服务器加载一个模块</h3>
   <p>类似 Promise 的用法，根据状态决定是否加载</p>
-  <a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6">场景：大组件大应用切割开来，需要的时候才从服务器加载一个模块</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6">场景：大组件大应用切割开来，需要的时候才从服务器加载一个模块</a>
 
 
   <h1>在 Vue 规则边界 做调整 以处理一些情况</h1>
@@ -604,24 +644,30 @@
 
   <h3>场景：统一提供给后代组件的数据/方法</h3>
   <p>解决：依赖注入：provide 和 inject </p>
-  <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5">依赖注入：统一提供给后代组件的数据/方法</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5">依赖注入：统一提供给后代组件的数据/方法</a>
 
   <h3>场景：集成一个第三方库(比如第三方日期选择器)，可能需要：</h3>
   <p>1.手动侦听事件</p>
   <p>2.做好 第三方日期选择器的 建立、清理</p>
-  <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8">手动侦听事件</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8">手动侦听事件</a>
 
 
   <h3>场景：解决组件相互依赖时又要用 webpack 等 </h3>
   <p>场景：Vue 构建一个文件目录树时，会出现 组件 A、B 相互依赖的情况(在渲染树中互为对方的后代和祖先), 在 Vue.component 全局注册组件时能解决，</p>
   <p>但用 webpack 等来依赖/导入组件时会有问题，解决如下： </p>
-  <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8">解决组件相互依赖时又要用 webpack 等</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8">解决组件相互依赖时又要用
+    webpack 等</a>
 
   <h3>模板定义的替代品 </h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E6%A8%A1%E6%9D%BF%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9B%BF%E4%BB%A3%E5%93%81">模板定义的替代品</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E6%A8%A1%E6%9D%BF%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9B%BF%E4%BB%A3%E5%93%81">模板定义的替代品</a>
 
   <h3>控制更新：1.强制更新(一般都是我们自己做错了) 2.通过 v-once 创建低开销的静态组件</h3>
-  <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E6%A8%A1%E6%9D%BF%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9B%BF%E4%BB%A3%E5%93%81">控制更新</a>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E6%A8%A1%E6%9D%BF%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9B%BF%E4%BB%A3%E5%93%81">控制更新</a>
 
   <h3>混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能</h3>
 
