@@ -443,6 +443,11 @@
     且 特性会被添加到该组件的模板根元素上</a>
 
   <h1>模板内部事件</h1>
+  <h3>事件名</h3>
+  <p>推荐你始终使用 kebab-case 的事件名，如下：</p>
+  <p>HTML：my-component v-on:my-event="doSomething"</p>
+  <p>js：this.$emit('my-event')</p>
+  <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#%E4%BA%8B%E4%BB%B6%E5%90%8D">事件名</a>
   <h3>组件监听 模板内部元素 提交的事件</h3>
   <a
     href="https://cn.vuejs.org/v2/guide/components.html#%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6">组件监听
@@ -471,9 +476,11 @@
     在组件上使用 v-model，将 抛出值 用于不同目的的处理</a>
 
   <h1>组件 监听原生事件</h1>
+
   <h3>在组件的根元素(即内部模板最外层的 div)上直接监听一个原生事件</h3>
   <p>用法：《base-input v-on:focus.native="onFocus"》《/base-input》</p>
   <p>应用场景：根元素《input》能接受该 原生事件 focus 时，若内部模板改造过，根元素实际不是《input》推荐用下面的方法</p>
+
   <h3>监听 模板内某个特定的子元素的 原生事件</h3>
   <p>用法：《base-input v-on="$listeners"》《/base-input》</p>
   <p>$listeners 包含了作用于该组件的所有监听器，这样确保能监听到 模板内任意元素的事件</p>
@@ -484,29 +491,171 @@
   <h3>监听 模板内某个特定的子元素的 原生事件</h3>
   <p>用法：《base-input v-on="$listeners"》《/base-input》</p>
   <p>$listeners 包含了作用于该组件的所有监听器，这样确保能监听到 模板内任意元素的事件</p>
-  <a href="https://cn.vuejs.org/v2/guide/components.html#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">
     组件 监听原生事件</a>
 
-  <h3>让组件 ‘双向绑定’ (与模板内部元素)的 prop 数据流动更清晰</h3>
+  <h3>让组件‘双向绑定’(与模板内部元素)的 prop 数据流动更清晰</h3>
   <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6">
-    让组件 ‘双向绑定’ (与模板内部元素)的 prop 数据流动更清晰</a>
+    让组件‘双向绑定’(与模板内部元素)的 prop 数据流动更清晰</a>
+
+
+
+  <h1>插槽 slot 标签</h1>
+
+  <h3>向一个组件传递内容(如警告消息)，slot 标签更方便</h3>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87%E6%8F%92%E6%A7%BD%E5%88%86%E5%8F%91%E5%86%85%E5%AE%B9">向一个组件传递内容(如警告消息)，slot
+    标签更方便</a>
+  <p>示例如下：</p>
+  <div id="app-28">
+    <alert-box>
+      Error!Something bad happened.
+    </alert-box>
+  </div>
+
+  <h3>插槽 slot 的作用域</h3>
+  <a href="https://cn.vuejs.org/v2/guide/components-slots.html#%E7%BC%96%E8%AF%91%E4%BD%9C%E7%94%A8%E5%9F%9F">插槽 slot
+    的作用域</a>
+  <div id='app-30' v-bind:user='user'>
+    <!--
+    绑定属性的写法：
+      原生标签 div 等：v-bind:user='user'
+      组件 ：url="/profile"
+    注意：一个有 v-bind 一个没有
+ -->
+    <!-- navigation-link 可以访问到 实例属性 user -->
+    <navigation-link url="/profile">
+      Logged in as {{ user.name }}
+    </navigation-link>
+    <!-- <navigation-link url="/profile"> -->
+    <!-- Clicking here will send you to: {{ url }}  -->
+    <!--
+  这里的 `url` 会是 undefined，因为 "/profile" 是
+  _传递给_ <navigation-link> 的而不是
+  在 <navigation-link> 组件*内部*定义的。
+  -->
+    <!-- </navigation-link> -->
+  </div>
+
+
+  <h3>多个插槽的 slot </h3>
+  <a href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD">多个插槽的 slot</a>
+  <p>demo： </p>
+  <div id='app-31'>
+    <base-layout>
+      <template v-slot:header>
+        <h1>Here might be a page title</h1>
+      </template>
+
+      <template v-slot:default>
+        <p>A paragraph for the main content.</p>
+        <p>And another one.</p>
+      </template>
+
+      <template v-slot:footer>
+        <p>Here's some contact info</p>
+      </template>
+    </base-layout>
+  </div>
 
 
 
 
+  <h1>动态组件、异步组件</h1>
+  <h3>场景：多标签的界面，切换组件，想保持这些组件的状态，避免反复重渲染 </h3>
+  <h3>解决：keep-alive 标签包裹住动态组件</h3>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%9C%A8%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-keep-alive">解决：keep-alive
+    标签包裹住动态组件</a>
 
 
+  <h3>异步组件</h3>
+  <h3>场景：大组件大应用切割开来，需要的时候才从服务器加载一个模块</h3>
+  <p>类似 Promise 的用法，根据状态决定是否加载</p>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6">场景：大组件大应用切割开来，需要的时候才从服务器加载一个模块</a>
 
 
+  <h1>在 Vue 规则边界 做调整 以处理一些情况</h1>
+  <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html">在 Vue 规则边界 做调整 以处理一些情况</a>
+
+  <h3>场景：new Vue 实例的 子组件，可以这样访问实例的属性：this.$root.属性/方法</h3>
+  <p>推荐使用 Vuex 来管理这些东西</p>
+
+  <h3>场景：在 JS 里直接访问一个子组件 base-input</h3>
+  <p>base-input ref="usernameInput" // 通过 ref 特性为这个子组件赋予一个 ID 引用</p>
+  <p>this.$refs.usernameInput // 这样来访问 base-input 组件的实例</p>
+
+  <h3>场景：统一提供给后代组件的数据/方法</h3>
+  <p>解决：依赖注入：provide 和 inject </p>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5">依赖注入：统一提供给后代组件的数据/方法</a>
+
+  <h3>场景：集成一个第三方库(比如第三方日期选择器)，可能需要：</h3>
+  <p>1.手动侦听事件</p>
+  <p>2.做好 第三方日期选择器的 建立、清理</p>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8">手动侦听事件</a>
 
 
+  <h3>场景：解决组件相互依赖时又要用 webpack 等 </h3>
+  <p>场景：Vue 构建一个文件目录树时，会出现 组件 A、B 相互依赖的情况(在渲染树中互为对方的后代和祖先), 在 Vue.component 全局注册组件时能解决，</p>
+  <p>但用 webpack 等来依赖/导入组件时会有问题，解决如下： </p>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8">解决组件相互依赖时又要用
+    webpack 等</a>
+
+  <h3>模板定义的替代品 </h3>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E6%A8%A1%E6%9D%BF%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9B%BF%E4%BB%A3%E5%93%81">模板定义的替代品</a>
+
+  <h3>控制更新：1.强制更新(一般都是我们自己做错了) 2.通过 v-once 创建低开销的静态组件</h3>
+  <a
+    href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E6%A8%A1%E6%9D%BF%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9B%BF%E4%BB%A3%E5%93%81">控制更新</a>
+
+  <h3>混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能</h3>
+
+  <h3>定义一个使用混入对象的组件</h3>
+  <div id='app-33'>
+    <component>示例</component>
+  </div>
+
+  <h3>混入的选项合并</h3>
+  <div id='app-34'>
+    示例
+  </div>
+
+  <h3>全局混入</h3>
+  <div id='app-35'>
+    示例
+  </div>
 
 
+  <h3>自定义指令(跳过)</h3>
 
 
+  <h1>两种写法：1.之前的模板写法 2.渲染函数 & JSX的写法 ；动态创建多个类似组件时，推荐2</h1>
+  <h1>无需记忆，需要时再用</h1>
+  <h3>渲染函数 & JSX</h3>
+  <p>demo1</p>
+  <div id='app-36'>
+    <anchored-heading level='1'>1</anchored-heading>
+    <anchored-heading level='2'>2</anchored-heading>
+    <anchored-heading level='3'>3</anchored-heading>
+    <anchored-heading level='4'>4</anchored-heading>
+    <anchored-heading level='5'>5</anchored-heading>
+  </div>
+  <p>demo2</p>
+  <div id='app-37'>
+    <!-- 以下两种方式都是调用 app37 实例 data 的 title -->
+    <h1>{{ title }}</h1>
+    <eg3></eg3>
+  </div>
 
 
-
+  <h1>工具</h1>
+  <h1>建议使用单文件 .vue 写组件</h1>
 
 
 
