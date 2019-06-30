@@ -12,13 +12,19 @@
 
 - `我的知乎文章`
 
+  `我的文章`
+
    https://www.zhihu.com/people/patrick-17-57/posts
+   
+  `Vue.js (3)-实例与组件的数据流动`
 
    https://zhuanlan.zhihu.com/p/71605020
+   
+  `Vue.js (4)-图解杂烩(后续再扩展)`
 
    https://zhuanlan.zhihu.com/p/71618369
 
-- `基于官方文档的整理 Demo`
+- `基于官方文档整理的 Demo`
 
    https://github.com/LahmYing/front-end-tools/tree/master/%E6%A1%86%E6%9E%B6/vue/VueDemo
 
