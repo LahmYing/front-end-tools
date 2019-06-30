@@ -1,9 +1,9 @@
 # 前端工具(原生+Vue.js)
 - **尽量做到像积木一样,拿到就能用**
-- `1.我们要达到什么效果？`
-- `2.这是什么？有什么用？`
-- `3.怎么用呢？`
-- `4.又怎么嵌入到项目中呢？`
+`我们要达到什么效果？`
+`这是什么？有什么用？`
+`怎么用呢？`
+`又怎么嵌入到项目中呢？`
 
 <br/></br>
 <br/></br>
@@ -14,19 +14,19 @@
 
   `我的文章`
 
-   https://www.zhihu.com/people/patrick-17-57/posts
+  https://www.zhihu.com/people/patrick-17-57/posts
    
   `Vue.js (3)-实例与组件的数据流动`
 
-   https://zhuanlan.zhihu.com/p/71605020
+  https://zhuanlan.zhihu.com/p/71605020
    
   `Vue.js (4)-图解杂烩(后续再扩展)`
 
-   https://zhuanlan.zhihu.com/p/71618369
+  https://zhuanlan.zhihu.com/p/71618369
 
 - `基于官方文档整理的 Demo`
 
-   https://github.com/LahmYing/front-end-tools/tree/master/%E6%A1%86%E6%9E%B6/vue/VueDemo
+  https://github.com/LahmYing/front-end-tools/tree/master/%E6%A1%86%E6%9E%B6/vue/VueDemo
 
 - **原生**
 
