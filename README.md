@@ -12,7 +12,7 @@
 <br/></br>
 <br/></br>
 
-**Vue**
+**Vue.js**
 
 - `我的知乎文章`
 
@@ -35,7 +35,7 @@
 <br/></br>
 <br/></br>
 
-**原生**
+**原生 + Node.js**
 
 - `markdown 引入 canvas动画`
 
