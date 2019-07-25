@@ -2,7 +2,7 @@
 
 **原生 + Node.js**
 
-- `博客-nodeJs-前端路由 + 简单的后端 API 实现前后端交互`
+- `博客：前端路由 + 简单的后端 API，实现前后端交互`
 
 ![image](https://github.com/LahmYing/front-end-tools/blob/master/images/%E5%8D%9A%E5%AE%A2.gif)
 
