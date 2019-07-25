@@ -2,23 +2,11 @@
 
 **Vue.js**
 
-- `我的知乎文章`
+- `vue + vue-router + element-ui 框架的 demo`
 
-  `文章总览`
+  https://github.com/LahmYing/vue-elementUI-demo
 
-  https://www.zhihu.com/people/patrick-17-57/posts
-   
-  `Vue.js (3)-实例与组件的数据流动`
 
-  https://zhuanlan.zhihu.com/p/71605020
-   
-  `Vue.js (4)-图解杂烩(后续再扩展)`
-
-  https://zhuanlan.zhihu.com/p/71618369
-
-- `整理官方文档的 Demo`
-
-  https://github.com/LahmYing/front-end-tools/tree/master/%E6%A1%86%E6%9E%B6/vue/VueDemo
   
 <br/></br>
 <br/></br>
