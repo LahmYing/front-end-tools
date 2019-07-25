@@ -1,15 +1,4 @@
-# 前端(原生+Vue.js+Node.js)
-
-**Vue.js**
-
-- `vue + vue-router + element-ui 框架的 demo`
-
-  https://github.com/LahmYing/vue-elementUI-demo
-
-
-  
-<br/></br>
-<br/></br>
+# 前端(原生+Vue.js)
 
 **原生 + Node.js**
 
@@ -44,3 +33,16 @@
 - `待办事项`
 
 ![image](https://github.com/LahmYing/front-end-tools/blob/master/images/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9.gif)
+
+<br/></br>
+<br/></br>
+
+**Vue.js**
+
+- `见 vue + vue-router + element-ui 框架的 demo`
+
+  https://github.com/LahmYing/vue-elementUI-demo
+
+
+  
+
