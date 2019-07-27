@@ -1,5 +1,11 @@
 # 前端(原生+Vue.js)
 
+**Vue.js**
+
+- `见 vue + vue-router + element-ui 框架的 demo`
+
+  https://github.com/LahmYing/vue-elementUI-demo
+  
 **原生 + Node.js**
 
 - `博客：前端路由 + 简单的后端 API，实现前后端交互`
@@ -37,11 +43,7 @@
 <br/></br>
 <br/></br>
 
-**Vue.js**
 
-- `见 vue + vue-router + element-ui 框架的 demo`
-
-  https://github.com/LahmYing/vue-elementUI-demo
 
 
   
