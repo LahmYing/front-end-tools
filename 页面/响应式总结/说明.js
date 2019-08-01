@@ -71,7 +71,7 @@ img {
 
 
 /*
-五、百分比布局也叫作流式布局、弹性盒布局，即 Flex 布局
+五、百分比布局也叫作流式布局、弹性盒布局
 */
 百分比能够设置的属性是 width、height、padding、margin。
 其他属性比如 border、font-size 不能用百分比设置的
