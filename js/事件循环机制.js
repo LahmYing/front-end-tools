@@ -12,19 +12,24 @@
 3.主线程取出 Event Queue 中的 task 并执行 // microtask 总是比 macrotask 并执行
   */
 
+
+// 宏任务包含有：setTimeout, setInterval, setImmediate, I / O, UI rendering
+// 微任务包含有：process.nextTick, promise.then, MutationObserver
+
+
 // 例子
-console.log('同步0'); 
-setTimeout(() => {  
+console.log('同步0');
+setTimeout(() => {
   console.log('宏任务0')
 }, 0);
-new Promise((resolve, reject) => {  
-  setTimeout(() => {  
+new Promise((resolve, reject) => {
+  setTimeout(() => {
     console.log('宏任务1');
   }, 0);
   console.log('同步1-1');
   resolve();
   console.log('同步1-2');
-}).then(() => {     
+}).then(() => {
   console.log('微任务0');
 });
 console.log('同步2');
