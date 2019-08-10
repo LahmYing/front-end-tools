@@ -1,12 +1,12 @@
 /***************** 事件 *******************/
 // 绑定事件
 // div 监听 eventName 事件，如 'click'
-var bindEvent = function(div, eventName, callback) {
+var bindEvent = function (div, eventName, callback) {
     div.addEventListener(eventName, callback)
 }
 
 // 给所有 div 绑定某个事件
-var bindAll = function(selector, eventName, callback) {
+var bindAll = function (selector, eventName, callback) {
     var divs = document.querySelectorAll(selector)
     for (var i = 0; i < divs.length; i++) {
         var e = divs[i]

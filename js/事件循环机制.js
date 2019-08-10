@@ -1,0 +1,30 @@
+// 浏览器中 JS 引擎执行 JS 代码的执行顺序/机制
+/*
+1.进入主线程 → 同步/异步代码？
+1.1 同步代码，执行之
+1.2 异步代码 
+    → 去 Event Table 注册   
+    → 注册成为 macrotask(宏任务)/microtask(微任务) 
+    → 放入 Event Queue
+
+2.重复 1.1 和 1.2 直到当前主线程的脚本执行完
+
+3.主线程取出 Event Queue 中的 task 并执行 // microtask 总是比 macrotask 并执行
+  */
+
+// 例子
+console.log('同步0'); 
+setTimeout(() => {  
+  console.log('宏任务0')
+}, 0);
+new Promise((resolve, reject) => {  
+  setTimeout(() => {  
+    console.log('宏任务1');
+  }, 0);
+  console.log('同步1-1');
+  resolve();
+  console.log('同步1-2');
+}).then(() => {     
+  console.log('微任务0');
+});
+console.log('同步2');
