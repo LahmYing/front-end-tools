@@ -7,6 +7,5 @@ if (x === 2) {
 
 
 // require 是运行时加载模块，import 命令无法取代 require 的动态加载功能
-// eg
 const path = './' + fileName;
 const myModual = require(path);
