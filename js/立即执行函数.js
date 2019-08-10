@@ -1,0 +1,37 @@
+// 准确地说，应该叫立即调用函数表达式
+// IIFE（ 立即调用函数表达式）是一个在定义时就会立即执行的  JavaScript 函数
+
+(function () {
+  //
+})();
+
+/*
+// 切开，第一部分,() 里的一个匿名函数，这个匿名函数拥有独立的词法作用域!独立的词法作用域!
+// 避免了外界访问此 IIFE 中的变量，而且又不会污染全局作用域
+
+(function () {
+  // 
+})
+
+第二部分再一次使用 () 创建了一个立即执行函数表达式，JavaScript 引擎到此将直接执行函数
+*/
+
+
+
+
+// 将 IIFE 分配给一个变量，不是存储 IIFE 本身，而是存储 IIFE 执行后返回的结果
+var result = (function () {
+  var age = 12
+  var name = {
+    first: "Barry",
+    last: "King"
+  };
+  return {
+    name,
+    age
+  }
+})();
+// IIFE 执行后返回的结果：
+console.log(result.name) // Object { first: "Barry", last: "King" }
+console.log(result.age)  // 12
+console.log(result)  // Object { name: {…}, age: 12 }
