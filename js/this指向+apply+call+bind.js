@@ -8,3 +8,6 @@ someFunc.call(context, 1, 2, 3, 4)
 someFunc.bind(context, 1, 2, 3, 4)
 
 // this 指向见 https://github.com/LahmYing/front-end-tools/issues/7
+
+
+// 箭头函数的 this 指向等同于 词法作用域的上下文

@@ -27,3 +27,10 @@ const myModual = require(path);
 // commonJS模块都被视作一个对象。
 // 4.值拷贝
 // commonJS的模块输出和 函数的值传递相似，都是值的拷贝
+
+
+for (var index = 0; index < 10; index++) {
+  // const element = array[index];
+  
+}
+console.log(index);
