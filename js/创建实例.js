@@ -8,7 +8,7 @@ function Shape() {
 let newObj = new Shape()
   // new 这个语法糖帮你省下的那些代码
   // 1.新建一个临时的空对象 obj
-  // 2.链接到原型 obj._proto_ = Shape.prototype
+  // 2.链接到原型 obj._proto_ = Shape.prototype，所以 new 后面是函数，因为函数一定有 prototype
   // 3.替换 this, Shape.call(obj) 
   //   3.1 本来执行 Shape() 时，即执行 Shape.call(undefinded),this 为 Window，即 x/y 为 Window.x/y
   //   3.2 替换后，this 变成 obj -> obj.x/y -> newObj.x/y
