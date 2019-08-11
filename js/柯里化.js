@@ -1,0 +1,18 @@
+// 想起 立即调用函数表达式
+
+var add = function (x) {
+  return function (y) {
+    return x + y;
+  };
+};
+
+console.log(add(1)(1)); // 输出2
+
+var add1 = add(1);
+console.log(add1(1)); // 输出2
+
+var add10 = add(10);
+console.log(add10(1)); // 输出11
+
+
+var ooo1 = new Function()
