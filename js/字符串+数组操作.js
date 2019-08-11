@@ -14,8 +14,24 @@ var replaceStr = function(str, before, after) {
 }
 
 // 数组
-// 末尾添加新元素
-// a.push('新元素')
+// 首操作 shift unshift 
+// 尾操作 pop push
+
+// 排序 sort
+// sort 可以接收一个比较函数来实现自定义的排序
+var arr = [11, 20, 1, 3, 5, 30];
+// 大到小
+arr.sort((x, y) => y - x); // >> Array(6) [ 30, 20, 11, 5, 3, 1 ]
+// 小到大
+arr.sort((x, y) => x - y); // >> Array(6) [ 1, 3, 5, 11, 20, 30 ]
+
+// 翻转 reserve
+
+// 连接 concat
+// let arr = [1, 2, 3];
+// let newArr = arr.concat([4, 5, 6], [7, 8, 9]);
+
+// splice(2,0,“red”,“green”) 会从当前数组的位置2开始插入字符串"red"和"green"
 
 // 切片
 // s.slice(开始下标, 结束下标)
