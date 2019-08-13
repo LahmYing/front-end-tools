@@ -14,3 +14,4 @@
 // vuex 可以结合页面存储使用
 
 // provide 和 inject 的跨级通信，放 vuex 之后，因为即便你用了 vuex ，你也不一定需要 provide 这个设计
+
