@@ -1,20 +1,16 @@
-# 前端(原生+Vue.js)
 
 **Vue.js**
 
-- `见 vue + vue-router + element-ui 框架的 demo`
+- `Vue + vue-router + element-ui 的 demo`
 
   https://github.com/LahmYing/vue-elementUI-demo
   
-**原生 + Node.js**
+**原生 JS 的简单 Demo 演示**
 
 - `博客：前端路由 + 简单的后端 API，实现前后端交互`
 
 ![image](https://github.com/LahmYing/front-end-tools/blob/master/images/%E5%8D%9A%E5%AE%A2.gif)
 
-- `markdown 引入 canvas动画`
-
-![image](https://github.com/LahmYing/front-end-tools/blob/master/images/markdown%E5%BC%95%E5%85%A5canvas%E5%8A%A8%E7%94%BB.gif)
 
 - `多选择器 + 动画 + 伪元素`
 
