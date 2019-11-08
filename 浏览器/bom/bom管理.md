@@ -1,3 +1,4 @@
+```js
 // BOM(browser object model) 是什么 有什么用
 // HTML5 新增的 BOM API 和新功能
 // 单页应用(SPA(single page application))
@@ -95,3 +96,4 @@ window.addEventListener("popstate", function(e) {
 只能在相同域名下
 可以使用 queryString
 主要作用是来做 SPA
+```

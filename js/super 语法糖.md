@@ -1,3 +1,4 @@
+```js
 class A {
   constructor() {
     this.f2 = () => console.log('a.f2'); // 原型链上的属性
@@ -22,3 +23,4 @@ class B extends A {
 }
 
 // super 其实就是 B._proto_ 加上 B.prototype._proto_ = A.prototype
+```

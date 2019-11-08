@@ -1,3 +1,4 @@
+```js
 // import 命令会被 JavaScript 引擎静态分析，先于模块内的其他语句执行
 // import 和 export 命令只能在模块的顶层，不能在代码块之中（比如，在 if 代码块之中，或在函数之中）
 // 报错
@@ -34,3 +35,4 @@ for (var index = 0; index < 10; index++) {
   
 }
 console.log(index);
+```
