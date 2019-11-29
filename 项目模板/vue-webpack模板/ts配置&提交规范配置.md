@@ -3,6 +3,7 @@
 
 ## ts 配置
 ### tsconfig.json
+https://www.typescriptlang.org/docs/handbook/compiler-options.html
 ```json
 {
   "include": [
@@ -43,6 +44,7 @@
 ```
 
 ### tslint.json
+https://palantir.github.io/tslint/rules/
 ```json
 {
   "defaultSeverity": "error",
@@ -50,12 +52,33 @@
     "tslint-config-standard"
   ],
   "rules": {
+    // 单引号
+    "quotemark": [
+      true,
+      "single"
+    ],
+    // ;
+    "semicolon": [
+      false,
+      "always"
+    ],
+    // 函数括号前空格
+    "space-before-function-paren": true,
     "no-unnecessary-type-assertion": false,
     "strict-type-predicates": false,
     "trailing-comma": false,
     "variable-name": false,
     "no-floating-promises": false,
-    "no-unused-expression": false
+    "no-unused-expression": false,
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
+    "interface-name": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-consecutive-blank-lines": false
   }
 }
 ```
