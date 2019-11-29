@@ -11,15 +11,12 @@ https://www.typescriptlang.org/docs/handbook/compiler-options.html
     "src/**/*.vue"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
   ],
   "compilerOptions": {
-    // 允许从没有设置默认导出的模块中默认导入
     "allowSyntheticDefaultImports": true,
-    // 启用装饰器
     "experimentalDecorators": true,
     "allowJs": true,
-    // 采用的模块系统
     "module": "esnext",
     "target": "es5",
     "moduleResolution": "node",
@@ -47,22 +44,24 @@ https://www.typescriptlang.org/docs/handbook/compiler-options.html
 https://palantir.github.io/tslint/rules/
 ```json
 {
-  "defaultSeverity": "error",
+  "defaultSeverity": "warning",
   "extends": [
-    "tslint-config-standard"
+    "tslint:recommended"
   ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
   "rules": {
-    // 单引号
     "quotemark": [
       true,
       "single"
     ],
-    // ;
     "semicolon": [
       false,
       "always"
     ],
-    // 函数括号前空格
     "space-before-function-paren": true,
     "no-unnecessary-type-assertion": false,
     "strict-type-predicates": false,
