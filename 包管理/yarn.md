@@ -80,7 +80,13 @@ yarn list --pattern "gulp|grunt" --depth=1
 
 yarn info <package>
 
+显示指定 version 的包的信息
+
 yarn info [package]@[version]
+
+显示包的 version 信息
+
+yarn info [package] version
 
 ### 运行一个定义好的包脚本
 
@@ -99,4 +105,18 @@ yarn run
 yarn run env
 
 如果想覆盖此命令，可以在 package.json 中定义自己的 "env" 脚本
+
+## yarn 升级
+
+```bash
+sudo -s # mac 进入管理员模式 
+
+npm uninstall -g yarn # 先卸载
+
+npm install yarn@1.3.2 -g # 安装指定版本
+
+npm install yarn@latest -g # 安装最新版本
+```
+
+
 
