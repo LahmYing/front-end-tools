@@ -46,6 +46,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     //编译生成的js文件存放在根目录下的js目录下，如果js文件夹不存在就自动创建
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     //用来打包require.ensure方法中引入的模块，如果该方法中没有引入任何模块，就不会生成chunk文件
+    // require.ensure 用来单独打包某个组件、依赖，打包到单独一个 chunk 文件
     chunkFileName: utils.assetsPath('js/[id].[chunkhash].js')
   },
   //配置插件项
