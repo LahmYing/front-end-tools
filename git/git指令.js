@@ -1,12 +1,3 @@
-
-// 非新增就采用在 dev 上合并的方式
-
-/************** 工作项目拉取的分支 **********************/
-// mall.m 拉取 release
-// menu.m.admin 拉取 dev
-
-
-/************** 克隆，查看所处分支 **********************/
 // git clone
 
 // 查看远程库的信息
@@ -14,20 +5,18 @@
 // git remote
 // git remote -v
 
-// 查看分支情况，*为当前所处分支
+// 查看分支情况
 // git branch -a
-
-// 创建远程 origin 的 branch_name 分支到本地 branch_name 分支
-// git checkout -b branch_name origin/branch_name
 
 // 切换到分支
 // git checkout 分支
 
-// 查看当前状态
+// 当前状态
 // git status
 
-// 查看当前分支的提交记录
+// 提交记录
 // git log
+// git log --pretty=oneline
 
 
 /**************** 新增功能，创建 feature 分支 ********************/
@@ -37,16 +26,16 @@
 // git add .
 // 提交
 // git commit -m "fix(price_manage):修正price_manage目录下的"
-// git push，会提示需要关联，根据提示操作
+// git push 会提示将分支推到远程
 
 
 /*************** dev 合共 feature 分支 *********************/
 // 切换到 dev 分支 （已关联到远程 dev）
 // git checkout dev
-// pull 更新本地 dev
+// git pull
 // 在当前分支即本地 dev 分支上，合并 branch_name 分支 
 // git merge branch_name
-// 合并后 push 即可
+// git push
 
 
 /**************** 修复 BUG ********************/
@@ -75,25 +64,7 @@
  * git config user.email
  * */
 
-
-/**************** 其他 ********************/
-// 查看本地与远程的分支关联关系 
-// git branch -vv
-
-// 移除关联（慎用！！！）
-// git remote remove origin
-
-// 关联
-// git branch --set-upstream-to origin/ali_pay ali_pay
-// 会提示两种情况，根据提示操作（远程已/未有该同名分支） 
-
-// 新建远程分支 branch_name & 推送本地分支 branch_name 到该远程分支
-// git push origin branch_name:branch_name
-
-// 本地分支 branch_name 关联到远程的同名分支 branch_name
-// git branch --set-upstream-to origin/branch_name branch_name
-
-
+ 
 /************* 工作栈 ***********************/
 /**
  * 暂存工作到 stash 栈
@@ -115,4 +86,7 @@
 // git reset --merge   //撤销合并
 // git pull            //拉去代码
 
+/************* 版本回退 ***********************/
+// git reset --hard 3e744
+// 3e744 为版本号前几位
 
