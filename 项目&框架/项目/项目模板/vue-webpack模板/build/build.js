@@ -5,7 +5,7 @@ require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
 // 引入ora模块，可以在控制台显示编译信息
-const ora = require('./node_modules/ora')
+const ora = require('ora')
 const rm = require('rimraf')
 const path = require('path')
 // 可以配置编译信息在控制台的显示样式

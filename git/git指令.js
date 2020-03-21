@@ -22,11 +22,15 @@
 /**************** 新增功能，创建 feature 分支 ********************/
 // 新建并切换到分支 branch_name，新建的分支还没有关联到指定的远程分支的
 // git checkout -b branch_name
+
 // 添加进缓存
 // git add .
+
 // 提交
 // git commit -m "fix(price_manage):修正price_manage目录下的"
-// git push 会提示将分支推到远程
+
+// 将分支推到远程
+// git push origin branch_name
 
 
 /*************** dev 合共 feature 分支 *********************/
