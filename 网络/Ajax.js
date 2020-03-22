@@ -1,7 +1,9 @@
 // 查看是否为 Ajax 请求
 // chrome -> Network -> XHR 是 Ajax 请求
 
-// 浏览器提供了使用 HTTP 协议收发数据的接口，名为 AJAX
+// AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。
+// AJAX 不是新的编程语言，而是一种使用现有标准的新方法。
+// AJAX 最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。
 
 var ajax = function(method, path, headers, data, reseponseCallback) {
     var r = new XMLHttpRequest()
